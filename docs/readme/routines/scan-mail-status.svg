@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="176" viewBox="0 0 1000 176" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+
+<rect x="0.5" y="0.5" width="999" height="175" rx="18" fill="#2b2a28" stroke="#3f3e3a"/>
+<text x="28" y="44" fill="#f5f4ef" font-size="21" font-weight="700">Scan mail status</text>
+<text x="28" y="78" fill="#b9b7af" font-size="15">You maintain the job-application mail status for the project at</text>
+<text x="28" y="102" fill="#b9b7af" font-size="15"></text>
+<rect x="36" y="89" width="150" height="16" rx="8" fill="#6b6b68"/>
+<text x="192" y="102" fill="#b9b7af" font-size="15">. Do exactly this, self-contained: 1. Read the job list from the SQLite DB…</text>
+<rect x="28" y="130" width="69" height="26" rx="13" fill="#3a3936" stroke="#55534e"/><text x="41" y="148" fill="#c9c7bf" font-size="13" font-weight="600">Paused</text>
+<rect x="107" y="130" width="199" height="26" rx="13" fill="#34332f" stroke="#55534e"/><circle cx="122" cy="143" r="4" fill="#4ade80"/><text x="136" y="148" fill="#d6d4cc" font-size="13" font-weight="600">Requires your computer</text>
+<path d="M816 134 h7 l2 3 h9 a2 2 0 0 1 2 2 v10 a2 2 0 0 1 -2 2 h-18 a2 2 0 0 1 -2 -2 z" fill="#6b6b68"/><rect x="842" y="135" width="130" height="16" rx="8" fill="#6b6b68"/>
+</svg>

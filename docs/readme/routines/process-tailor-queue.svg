@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="176" viewBox="0 0 1000 176" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+
+<rect x="0.5" y="0.5" width="999" height="175" rx="18" fill="#2b2a28" stroke="#3f3e3a"/>
+<text x="28" y="44" fill="#f5f4ef" font-size="21" font-weight="700">Process tailor queue</text>
+<text x="28" y="78" fill="#b9b7af" font-size="15">Generate tailored German CV + Motivationsschreiben packages for queued jobs,</text>
+<text x="28" y="102" fill="#b9b7af" font-size="15">apply queued status changes, refresh dashboard data</text>
+<rect x="28" y="130" width="176" height="26" rx="13" fill="#4a3514" stroke="#7a5a1f"/><text x="41" y="148" fill="#f0b954" font-size="13" font-weight="600">Only on this computer</text>
+<path d="M816 134 h7 l2 3 h9 a2 2 0 0 1 2 2 v10 a2 2 0 0 1 -2 2 h-18 a2 2 0 0 1 -2 -2 z" fill="#6b6b68"/><rect x="842" y="135" width="130" height="16" rx="8" fill="#6b6b68"/>
+</svg>

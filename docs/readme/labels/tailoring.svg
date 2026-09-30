@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="328" height="72" viewBox="0 0 328 72" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
-<rect x="0.5" y="0.5" width="327" height="71" rx="12" fill="#131016" stroke="#8b8bf0" stroke-opacity=".45"/>
-<rect x="12" y="10" width="300" height="28" rx="14" fill="#8b8bf0" fill-opacity=".16" stroke="#8b8bf0" stroke-width="1.5"/>
-<path d="M27 19 L32 24 L27 29" fill="none" stroke="#a5a5f5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="46" y="29.5" fill="#a5a5f5" font-size="16" font-weight="700">Tailored applications (optional)</text>
-<text x="14" y="60" fill="#b3aab4" font-size="14">a CV and a cover letter per job</text>
-</svg>

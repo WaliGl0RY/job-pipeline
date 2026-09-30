@@ -1,0 +1,147 @@
+{
+ "js-v0": [
+  "v0",
+  "10 July",
+  "A design with a model bill"
+ ],
+ "js-v1": [
+  "v1",
+  "around 11–12 July",
+  "A slash command"
+ ],
+ "js-v2": [
+  "v2",
+  "14 July",
+  "A scheduled task and a CV snapshot"
+ ],
+ "js-v3": [
+  "v3",
+  "5 August",
+  "\"Cast wide, then score\""
+ ],
+ "cv-v0": [
+  "v0",
+  "10–12 July",
+  "A sentence in a prompt"
+ ],
+ "cv-v1": [
+  "v1",
+  "13 July",
+  "Rules from reviewing drafts"
+ ],
+ "cv-drift": [
+  "drift",
+  "16–17 July",
+  "The scheduled task never got the rules"
+ ],
+ "cv-v3": [
+  "v3",
+  "18 July",
+  "Nine passes on one CV"
+ ],
+ "cv-v4": [
+  "v4",
+  "19 July",
+  "One routine with a quality bar"
+ ],
+ "cv-v5": [
+  "v5",
+  "29 July",
+  "One copy of the rules"
+ ],
+ "cv-v6": [
+  "v6",
+  "30 July",
+  "Naming and the template itself"
+ ],
+ "cv-aug": [
+  "rule",
+  "17 August",
+  "No claimed specialization"
+ ],
+ "cv-sep": [
+  "public",
+  "29–30 September",
+  "The public version"
+ ],
+ "ml-v0": [
+  "v0",
+  "10–12 July",
+  "Half a page from the posting"
+ ],
+ "ml-v1": [
+  "v1",
+  "13 July (morning)",
+  "Letters in a script"
+ ],
+ "ml-v2": [
+  "v2",
+  "13 July",
+  "Editable Word files and a four-part schema"
+ ],
+ "ml-drift": [
+  "drift",
+  "17 July",
+  "The same drift as the CVs"
+ ],
+ "ml-v3": [
+  "v3",
+  "18 July",
+  "The schema is replaced"
+ ],
+ "ml-v4": [
+  "v4",
+  "19 July",
+  "Simpler language and more motivation"
+ ],
+ "ml-aug": [
+  "rule",
+  "17 August",
+  "No claimed specialization"
+ ],
+ "ml-sep": [
+  "public",
+  "29–30 September",
+  "The public version"
+ ],
+ "db-data": [
+  "v0",
+  "10–11 July",
+  "Data layer first"
+ ],
+ "db-plan": [
+  "plan",
+  "10–12 July",
+  "The plan for a live bridge"
+ ],
+ "db-v12": [
+  "v1/v2",
+  "12 July",
+  "First dashboards"
+ ],
+ "db-store": [
+  "bugs",
+  "13–14 July",
+  "Storage problems"
+ ],
+ "db-16": [
+  "change",
+  "16 July",
+  "Low matches hidden"
+ ],
+ "db-v3": [
+  "v3",
+  "24 July",
+  "\"Copy for Claude\""
+ ],
+ "db-29": [
+  "design",
+  "29 July",
+  "Copy-paste becomes the design"
+ ],
+ "db-sep": [
+  "public",
+  "27–28 September",
+  "The public version"
+ ]
+}
