@@ -1,0 +1,33 @@
+{
+  "description": "Job type -> which CV sections and skills to emphasise when tailoring. A starting hint for routines/process-tailor-queue.md, not a mechanical rule. Copy to config/cv_emphasis.json and match the section names to your own master CV.",
+  "software_dev": {
+    "priority_sections": ["Skills", "Projects"],
+    "emphasize_skills": ["java", "python", "testing", "uml", "agile"],
+    "skills_order": ["Programming Languages", "Software Engineering", "Agile Methods"]
+  },
+  "backend": {
+    "priority_sections": ["Skills", "Projects"],
+    "emphasize_skills": ["python", "sql", "rest", "web_services"],
+    "skills_order": ["Programming Languages", "Software Engineering"]
+  },
+  "network": {
+    "priority_sections": ["Certifications", "Skills"],
+    "emphasize_skills": ["networking", "linux", "security"],
+    "skills_order": ["IT Infrastructure & Networking", "Security"]
+  },
+  "devops": {
+    "priority_sections": ["Skills", "Projects"],
+    "emphasize_skills": ["linux", "git", "ci", "cloud", "docker"],
+    "skills_order": ["Version Control & DevOps", "IT Infrastructure & Networking"]
+  },
+  "data": {
+    "priority_sections": ["Skills", "Projects"],
+    "emphasize_skills": ["python", "sql", "data", "analytics"],
+    "skills_order": ["Programming Languages", "AI & Analytics"]
+  },
+  "ai": {
+    "priority_sections": ["Projects", "Skills"],
+    "emphasize_skills": ["ai", "python", "data"],
+    "skills_order": ["AI & Analytics", "Programming Languages"]
+  }
+}

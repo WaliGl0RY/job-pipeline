@@ -1,0 +1,6 @@
+{
+  "_note": "Copy to config/dashboard_artifact.json after you publish the dashboard for the first time. Routines republish to this one artifact and never create a second one.",
+  "url": "<artifact-url-or-id-after-first-publish>",
+  "build": "python core/build_dashboard.py",
+  "html": "data/dashboard.html"
+}

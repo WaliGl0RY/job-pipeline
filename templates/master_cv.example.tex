@@ -1,0 +1,103 @@
+% Demo master CV template for the job pipeline.
+% Copy to profile/master_cv.tex and replace every value with your own.
+% The master CV stays complete and uncut: the tailoring routine cuts per job.
+% All people, schools and companies below are fictional.
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{ragged2e}
+
+\pagestyle{empty}
+\setlength{\parindent}{5pt}
+% Long words wrap whole to the next line instead of breaking with a hyphen.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt}
+% Ragged-right lists: avoids stretched gaps once hyphenation is off.
+\let\olditemize\itemize
+\let\endolditemize\enditemize
+\renewenvironment{itemize}{\olditemize\RaggedRight}{\endolditemize\vspace{6pt}}
+
+% One CV entry: bold title + right-aligned date, italic subtitle + italic location.
+\newcommand{\cvheading}[4]{%
+  \textbf{#1} \hfill #2\\
+  \textit{#3} \hfill \textit{#4}\par
+}
+
+% Keeps a heading and its bullet list on one page (a minipage is an atomic box).
+% The \noindent is required: without it every block except the first after a
+% \section picks up a stray paragraph indent and misaligns title and date.
+\newenvironment{cvblock}{\noindent\begin{minipage}{\linewidth}}{\end{minipage}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Alex Example}\\[4pt]
+  Example City \quad | \quad +00 000 0000000 \quad | \quad alex.example@example.com \quad | \quad alex-example.example.com
+\end{center}
+
+\noindent Computer science student in the 3rd semester. Built backend services in Java and Python in team projects. Enjoys turning messy data into clear dashboards and automating repetitive work. Languages: English and German, both fluent.
+
+\section{Education}
+\begin{cvblock}
+\cvheading{B.Sc. Computer Science}{10/2025 -- 09/2028}{University of Example Sciences}{Example City}
+\begin{itemize}
+  \item Core modules: \textbf{Software Engineering}, \textbf{Databases}, \textbf{Distributed Systems}, \textbf{Computer Networks}
+\end{itemize}
+\end{cvblock}
+
+\section{Projects}
+\begin{cvblock}
+\cvheading{Library Booking Service: Team Project}{03/2026 -- 06/2026}{Java, Spring Boot, PostgreSQL, Scrum}{University}
+\begin{itemize}
+  \item Built the \textbf{REST API} and \textbf{database schema} for room and book reservations
+  \item Wrote \textbf{JUnit} tests for the business logic and ran two-week \textbf{Scrum} sprints
+\end{itemize}
+\end{cvblock}
+
+\begin{cvblock}
+\cvheading{Weather Dashboard: Personal Project}{05/2026}{Python, FastAPI, SQLite}{Solo}
+\begin{itemize}
+  \item Collects sensor readings and charts them in a small \textbf{web dashboard}
+\end{itemize}
+\end{cvblock}
+
+\section{Experience}
+\begin{cvblock}
+\cvheading{IT Support (part-time)}{01/2025 -- 12/2025}{Example Services Ltd.}{Example City}
+\begin{itemize}
+  \item First-level support for \textbf{Windows} clients and \textbf{network printers}
+\end{itemize}
+\end{cvblock}
+
+\section{Certifications}
+\begin{cvblock}
+\cvheading{Example Cloud Fundamentals}{03/2026}{Cloud basics certificate}{Online course}
+\vspace{6pt}
+\end{cvblock}
+
+\section{Skills}
+\begin{cvblock}
+\noindent
+\begin{minipage}[t]{0.49\linewidth}
+  \textbf{Programming:} Java, Python, SQL, JavaScript
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+  \textbf{Tools:} Git, Docker, Linux, REST APIs
+\end{minipage}
+\end{cvblock}
+
+\section{Languages \& Interests}
+\noindent English: C1 \quad German: C1 \quad Interests: bouldering, home automation
+
+\end{document}

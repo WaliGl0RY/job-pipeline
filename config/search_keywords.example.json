@@ -1,0 +1,73 @@
+{
+  "description": "Search terms and hard filters for routines/search-jobs.md. Copy this file to config/search_keywords.json and edit it. The routine treats it as the ONLY source of search terms and filters. The _comment/_note fields explain why each value is what it is; the agent reads them too.",
+
+  "target": {
+    "comment": "Who and where you are searching for. The demo setup is working-student roles around Cologne, Germany; change all of this to your own situation.",
+    "role_type": "working student",
+    "home_location": "Cologne",
+    "country_code": "DE",
+    "location_radius_km": 40
+  },
+
+  "broad_sweeps": {
+    "comment": "PRIMARY source of recall, run through the Apify actor. Keep these bare (employment type only). Keyword search on most job boards matches title AND description, so a bare term surfaces roles whose titles you could never predict. Do NOT add tech qualifiers here: narrowing happens at the scoring stage, not the search stage.",
+    "apify": ["Working Student", "Werkstudent"]
+  },
+
+  "priority_searches": {
+    "comment": "Indeed MCP only. Indeed returns about 10 results per query with no pagination, so a bare query returns 10 arbitrary rows and wastes the call. Indeed therefore needs many narrow queries: the opposite of the broad-sweep strategy above.",
+    "indeed": [
+      "Working Student IT",
+      "Working Student Software",
+      "Working Student Data",
+      "Working Student Python",
+      "Working Student DevOps",
+      "Werkstudent IT",
+      "Werkstudent Softwareentwicklung",
+      "Werkstudent Datenanalyse"
+    ]
+  },
+
+  "hard_filters": {
+    "must_contain_one_of": ["werkstudent", "working student", "student assistant", "studentische hilfskraft"],
+    "must_contain_comment": "Check against title AND description combined. Some sources return a truncated title, and the real title only appears in the body, so a title-only check is unreliable.",
+
+    "title_exclude": [
+      "sales manager", "sales representative", "recruiting", "talent acquisition",
+      "human resources", "accounting", "controlling", "customer support", "office management"
+    ],
+    "title_exclude_comment": "Matched as substrings, so every entry must be specific enough to be unambiguous. A bare 'sales' would also match 'After Sales' and throw away a strong data/AI role before it was ever scored.",
+
+    "title_exclude_override": {
+      "comment": "Exclusion is a demotion signal, not a kill switch. If the title OR the description contains any token below, skip title_exclude entirely and send the job to scoring: the match_score gate reads the whole description and is a far better judge than a substring match on a title.",
+      "tokens": ["ai", "data", "analytics", "software", "developer", "engineering", " it ", "network", "cloud", "devops", "python", "java", "sql", "automation", "backend", "frontend", "linux", "support"]
+    },
+
+    "max_days_posted": 10,
+    "max_days_posted_comment": "Casting wide on keywords multiplies the candidate pool, so the recency window keeps each run reviewable. Postings found late are often already closed.",
+
+    "location_include": ["Köln", "Cologne", "Bonn", "Leverkusen", "Düsseldorf", "Hürth", "Frechen", "Bergisch Gladbach", "Troisdorf"],
+    "location_exclude": [],
+    "location_comment": "A job passes if its location is in location_include or within location_radius_km of home_location, and not in location_exclude."
+  },
+
+  "apify": {
+    "actor_id": "<your-apify-actor-id>",
+    "_actor_note": "Any Apify actor that returns job listings (title, company, location, url, posted date, description) works. Check the actor's own input schema and put its fields into actor_input.",
+    "actor_input": {
+      "_note": "Actor-specific. Map the target above (location, radius, recency) onto whatever fields your actor accepts. The routine adds the sweep term as the keyword field.",
+      "maxItems": 100
+    },
+    "max_total_charge_usd": 0.5,
+    "_cost_note": "Many job actors bill per result, often with a minimum per run. Set max_total_charge_usd as a hard cap on every call and don't raise the item count without a reason."
+  },
+
+  "indeed": {
+    "location": "Köln",
+    "country_code": "DE",
+    "_note": "search_jobs(search, location, country_code). Indeed short links can rotate per request, so the same posting may come back with a new URL: dedupe on company+title too (see the routine)."
+  },
+
+  "min_match_score": 50,
+  "min_match_score_comment": "Jobs scoring below this are never inserted, only logged. core/export_dashboard_data.py applies the same threshold (MIN_MATCH_SCORE) as a second safety net; keep the two in sync."
+}

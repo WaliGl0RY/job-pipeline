@@ -1,0 +1,28 @@
+# Your data layer: real jobs, mails, packages. Generated demo data lives here too.
+data/
+*.db
+*.db-journal
+
+# Your real CV and profile
+profile/
+
+# Your filled-in configs (the *.example.json files are tracked)
+config/search_keywords.json
+config/cv_emphasis.json
+config/dashboard_artifact.json
+
+# Local environment
+.env
+
+# Private working notes (not part of the repo)
+AUDIT.md
+
+# Python / editors / LaTeX by-products
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+build/
+*.aux
+*.log
+*.out
