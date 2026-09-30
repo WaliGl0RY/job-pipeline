@@ -1,7 +1,12 @@
 """Generate every SVG the README uses (docs/readme/).
 
-Palette: one violet family, taken from the dashboard's dark theme (core/dashboard_template.html):
-    BASE  #8b8bf0 (--accent)    LIGHT #a5a5f5 (--accent-2)
+Palette: six hues (violet, blue, cyan, green, pink, amber). Each zone owns one hue and uses a
+ramp of it on three clearly different levels:
+    level 1  zone strip   solid bright band (HUES[h]["band"]), white text, icon
+    level 2  sub-item     deep dark-tinted card (HUES[h]["deep"]) + 4px bright left bar and a round
+                          numbered badge (HUES[h]["bright"]); lives inside a blockquote in the README
+    level 3  detail       plain Markdown text (no SVG)
+The banner and the routine cards keep their own looks (dashboard violet, Claude's dark cards).
 Every SVG draws its own fixed dark card and light text, so it reads the same in GitHub's light
 and dark mode. System font stack only, no web fonts, no external files.
 
@@ -24,7 +29,18 @@ from html import escape
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-BASE, LIGHT = "#8b8bf0", "#a5a5f5"
+BASE, LIGHT = "#8b8bf0", "#a5a5f5"     # the banner's violet (dashboard look)
+HUES = {   # band: white text >= 4.5:1, deep: card fill, bright: bar + badge, light: title tint, soft: muted text
+    "violet": dict(band="#6d28d9", deep="#2e1065", bright="#a78bfa", light="#c4b5fd", soft="#ddd6fe", shield="7c3aed"),
+    "blue":   dict(band="#2563eb", deep="#1e3a8a", bright="#60a5fa", light="#93c5fd", soft="#bfdbfe", shield="2563eb"),
+    "cyan":   dict(band="#0e7490", deep="#164e63", bright="#22d3ee", light="#67e8f9", soft="#a5f3fc", shield="0e7490"),
+    "green":  dict(band="#15803d", deep="#14532d", bright="#4ade80", light="#86efac", soft="#bbf7d0", shield="15803d"),
+    "pink":   dict(band="#be185d", deep="#831843", bright="#f472b6", light="#f9a8d4", soft="#fbcfe8", shield="be185d"),
+    "amber":  dict(band="#b45309", deep="#78350f", bright="#fbbf24", light="#fcd34d", soft="#fde68a", shield="b45309"),
+}
+ZONE_HUE = {"dashboard": "violet", "demo": "pink", "search": "blue", "applications": "cyan", "replies": "green",
+            "routines": "pink", "guardrails": "amber", "architecture": "violet", "use": "blue",
+            "notes": "cyan", "story": "violet"}
 CARD = "#131016"
 FONT = "Segoe UI, -apple-system, Helvetica, Arial, sans-serif"
 
@@ -61,56 +77,70 @@ def svg(w, h, body, defs=""):
 
 # ---------------------------------------------------------------- zone strips (level 1)
 ZONES = {
-    "dashboard":    ("01", "The dashboard", "review jobs, replies and next steps on one page",
+    "demo":         ("01", "See it work", "a short tour of the dashboard, demo data only",
+                     '<rect x="-12" y="-9" width="24" height="18" rx="3"/><path d="M-3 -4 L5 0 L-3 4 Z"/>'),
+    "dashboard":    ("02", "The dashboard", "review jobs, replies and next steps on one page",
                      '<rect x="-11" y="-11" width="9" height="9" rx="2"/><rect x="2" y="-11" width="9" height="9" rx="2"/>'
                      '<rect x="-11" y="2" width="9" height="9" rx="2"/><rect x="2" y="2" width="9" height="9" rx="2"/>'),
-    "search":       ("02", "Search and scoring", "two sources, few filters, every reject logged",
+    "search":       ("03", "Search and scoring", "two sources, few filters, every reject logged",
                      '<circle cx="-2" cy="-2" r="8"/><path d="M4 4 L11 11"/>'),
-    "applications": ("03", "Applications", "optional: a CV and a cover letter per job",
+    "applications": ("04", "Applications", "optional: a CV and a cover letter per job",
                      '<path d="M-8 -11 H4 L9 -6 V11 H-8 Z"/><path d="M4 -11 V-6 H9"/><path d="M-4 0 H5"/><path d="M-4 5 H5"/>'),
-    "replies":      ("04", "Replies", "optional: invited, waiting or rejected",
+    "replies":      ("05", "Replies", "optional: invited, waiting or rejected",
                      '<rect x="-12" y="-8" width="24" height="17" rx="3"/><path d="M-12 -7 L0 3 L12 -7"/>'),
-    "routines":     ("05", "How it runs in Claude", "three routines, as scheduled tasks",
+    "routines":     ("06", "How it runs in Claude", "three routines, as scheduled tasks",
                      '<circle cx="0" cy="0" r="11"/><path d="M0 -6 V0 L5 3"/>'),
-    "guardrails":   ("06", "Guardrails", "nothing deleted, every write checked",
+    "guardrails":   ("07", "Guardrails", "nothing deleted, every write checked",
                      '<path d="M0 -12 L10 -8 V0 C10 6 6 10 0 12 C-6 10 -10 6 -10 0 V-8 Z"/><path d="M-4 0 L-1 3 L4 -3"/>'),
-    "architecture": ("07", "Architecture", "routines, connectors, one data folder",
+    "architecture": ("08", "Architecture", "routines, connectors, one data folder",
                      '<path d="M0 -11 L11 -5 L0 1 L-11 -5 Z"/><path d="M-11 0 L0 6 L11 0"/><path d="M-11 5 L0 11 L11 5"/>'),
-    "use":          ("08", "Use it yourself", "setup guide, demo data first",
+    "use":          ("09", "Use it yourself", "setup guide, demo data first",
                      '<rect x="-12" y="-10" width="24" height="20" rx="3"/><path d="M-7 -3 L-3 0 L-7 3"/><path d="M0 4 H6"/>'),
-    "notes":        ("09", "Honest notes", "limitations, security, AI, license",
+    "notes":        ("10", "Honest notes", "limitations, security, AI, license",
                      '<path d="M0 -12 L11 10 H-11 Z"/><path d="M0 -4 V2"/><path d="M0 6 V6.5"/>'),
-    "story":        ("10", "The full story", "version by version, with the bugs that shaped it",
+    "story":        ("11", "The full story", "version by version, with the bugs that shaped it",
                      '<path d="M-12 -8 C-7 -10 -3 -9 0 -6 C3 -9 7 -10 12 -8 V9 C7 7 3 8 0 10 C-3 8 -7 7 -12 9 Z"/><path d="M0 -6 V10"/>'),
 }
 
 
-def zone_svg(nn, title, subtitle, icon):
+def zone_svg(slug):
+    nn, title, subtitle, icon = ZONES[slug]
+    h = HUES[ZONE_HUE[slug]]
     assert 104 + tw(title, 27, True) + 40 < 1172 - tw(subtitle, 15), title
-    return svg(1200, 84, f'''<rect x="0.5" y="0.5" width="1199" height="83" rx="14" fill="{CARD}" stroke="{BASE}" stroke-opacity=".45"/>
-<rect x="1" y="1" width="1198" height="82" rx="14" fill="url(#g)"/>
-<rect x="0" y="16" width="6" height="52" rx="3" fill="{BASE}"/>
-<circle cx="62" cy="42" r="24" fill="{BASE}" fill-opacity=".16" stroke="{BASE}" stroke-width="1.5"/>
-<g transform="translate(62 42)" fill="none" stroke="{LIGHT}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon}</g>
-<text x="106" y="33" fill="{BASE}" font-size="12" font-weight="700" letter-spacing="3">{nn}</text>
-<text x="104" y="60" fill="{LIGHT}" font-size="27" font-weight="700" letter-spacing="-0.3">{escape(title)}</text>
-<text x="1172" y="49" fill="#b8aeb4" font-size="15" text-anchor="end">{escape(subtitle)}</text>''',
-               f'<linearGradient id="g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="{BASE}" stop-opacity=".28"/>'
-               f'<stop offset=".55" stop-color="{BASE}" stop-opacity="0"/></linearGradient>')
+    return svg(1200, 84, f'''<rect width="1200" height="84" rx="14" fill="{h["band"]}"/>
+<circle cx="62" cy="42" r="24" fill="#ffffff" fill-opacity=".18"/>
+<g transform="translate(62 42)" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{icon}</g>
+<text x="106" y="33" fill="#ffffff" fill-opacity=".8" font-size="12" font-weight="700" letter-spacing="3">{nn}</text>
+<text x="104" y="60" fill="#ffffff" font-size="27" font-weight="700" letter-spacing="-0.3">{escape(title)}</text>
+<text x="1172" y="49" fill="#ffffff" fill-opacity=".9" font-size="15" text-anchor="end">{escape(subtitle)}</text>''')
 
 
-# ---------------------------------------------------------------- sub-item badges (level 2)
-def badge_svg(inner):
-    return svg(32, 32, f'''<rect x="0.5" y="0.5" width="31" height="31" rx="9" fill="#363372" stroke="#6f6fd0" stroke-width="1"/>
-{inner}''')
+# ---------------------------------------------------------------- sub-item cards (level 2)
+def item_svg(hue, n, title, muted, mono=False):
+    """n = int for a numbered badge, None for a check mark."""
+    h = HUES[hue]
+    w = 1000
+    assert tw(title, 17, True) < w - 100, title
+    assert tw(muted, 14) < w - 100, muted
+    badge = (f'<text x="38" y="38" text-anchor="middle" fill="{h["deep"]}" font-size="15" font-weight="700">{n}</text>' if n is not None else
+             f'<path d="M30.5 32 L36 37.5 L46 26" fill="none" stroke="{h["deep"]}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>')
+    fam = ' font-family="Consolas, Menlo, monospace"' if mono else ""
+    return svg(w, 64, f'''<rect width="{w}" height="64" rx="10" fill="{h["deep"]}"/>
+<rect width="4" height="64" rx="2" fill="{h["bright"]}"/>
+<circle cx="38" cy="32" r="14" fill="{h["bright"]}"/>
+{badge}
+<text x="68" y="29" fill="#ffffff" font-size="17" font-weight="700"{fam}>{escape(title)}</text>
+<text x="68" y="50" fill="{h["soft"]}" font-size="14">{escape(muted)}</text>''')
 
 
-def make_badges():
-    for n in range(1, 13):
-        write(f"badges/{n}.svg", badge_svg(
-            f'<text x="16" y="21.5" text-anchor="middle" fill="#e6e6ff" font-size="15" font-weight="700">{n}</text>'))
-    write("badges/check.svg", badge_svg(
-        '<path d="M9 16.5 L14 21.5 L23 11" fill="none" stroke="#e6e6ff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'))
+def chips_svg(labels):
+    x, parts = 2, []
+    for lab in labels:
+        w = round(tw(lab, 13) + 24)
+        parts.append(f'<rect x="{x + .5}" y="1.5" width="{w}" height="25" rx="12.5" fill="#16161d" stroke="#6b7280"/>'
+                     f'<text x="{x + w / 2 + .5}" y="18.5" text-anchor="middle" fill="#d1d5db" font-size="13">{escape(lab)}</text>')
+        x += w + 8
+    return svg(x, 28, "\n".join(parts))
 
 
 # ---------------------------------------------------------------- banner = the dashboard
@@ -158,22 +188,24 @@ def banner():
     write("banner.svg", svg(1200, 300, body, defs))
 
 
-# ---------------------------------------------------------------- nav pills
-PILLS = [("Story ↓", "#story", True), ("Search & scoring", "#search-and-scoring", False),
-         ("Applications", "#applications", False), ("Replies", "#replies", False),
-         ("Routines", "#routines", False), ("Guardrails", "#guardrails", False),
-         ("Architecture", "#architecture", False), ("Use it yourself", "#use-it-yourself", False),
-         ("Honest notes", "#honest-notes", False)]
+# ---------------------------------------------------------------- nav pills (coloured by zone hue)
+PILLS = [("Story ↓", "#story", "violet", True), ("Search & scoring", "#search-and-scoring", "blue", False),
+         ("Applications", "#applications", "cyan", False), ("Replies", "#replies", "green", False),
+         ("Routines", "#routines", "pink", False), ("Guardrails", "#guardrails", "amber", False),
+         ("Architecture", "#architecture", "violet", False), ("Use it yourself", "#use-it-yourself", "blue", False),
+         ("Honest notes", "#honest-notes", "cyan", False)]
 
 
 def make_pills():
     out = []
-    for label, anchor, filled in PILLS:
-        w = round(len(label) * 7.6 + 34)
-        fill, stroke, col = (BASE, BASE, "#131016") if filled else ("#1d1a36", "#6f6fd0", "#e6e6ff")
+    for label, anchor, hue, filled in PILLS:
+        h = HUES[hue]
+        w = round(len(label) * 7.6 + 50)
+        fill, stroke, col, dot = (h["band"], h["bright"], "#ffffff", "#ffffff") if filled else ("#1b1b24", h["bright"], "#f3f4f6", h["bright"])
         slug = "nav-" + label.lower().replace(" & ", "-").replace(" ↓", "").replace(" ", "-")
-        write(f"nav/{slug}.svg", svg(w, 30, f'''<rect x="0.5" y="0.5" width="{w - 1}" height="29" rx="15" fill="{fill}" stroke="{stroke}"/>
-<text x="{w / 2}" y="20" text-anchor="middle" fill="{col}" font-size="13" font-weight="700" font-family="Verdana, {FONT}">{escape(label)}</text>'''))
+        write(f"nav/{slug}.svg", svg(w, 30, f'''<rect x="0.5" y="0.5" width="{w - 1}" height="29" rx="15" fill="{fill}" stroke="{stroke}" stroke-width="1.5"/>
+<circle cx="16" cy="15" r="4.5" fill="{dot}"/>
+<text x="{26 + (w - 26) / 2}" y="20" text-anchor="middle" fill="{col}" font-size="13" font-weight="700" font-family="Verdana, {FONT}">{escape(label)}</text>'''))
         out.append((label, anchor, slug, w))
     return out
 
@@ -274,28 +306,31 @@ def make_routines():
 
 # ---------------------------------------------------------------- story version headings
 def make_versions():
+    h = HUES["violet"]
     data = json.loads((HERE / "story-versions.json").read_text(encoding="utf-8"))
     for slug, (tag, when, title) in data.items():
         tagw = round(tw(tag, 13, True) + 22)
         w = 1000
         assert 14 + tagw + 12 + tw(when, 13) + 18 + tw(title, 16, True) < w - 20, slug
-        body = (f'<rect x="0.5" y="0.5" width="{w - 1}" height="35" rx="10" fill="#1e1a3c" stroke="#5a55b8"/>'
-                f'<rect x="10" y="6" width="{tagw}" height="24" rx="12" fill="#363372" stroke="#6f6fd0"/>'
-                f'<text x="{10 + tagw / 2}" y="23" text-anchor="middle" fill="#e6e6ff" font-size="13" font-weight="700">{escape(tag)}</text>'
-                f'<text x="{10 + tagw + 14}" y="23" fill="#a9a6d0" font-size="13">{escape(when)}</text>'
-                f'<text x="{10 + tagw + 14 + tw(when, 13) + 16:.0f}" y="23" fill="#f2f0ff" font-size="16" font-weight="700">{escape(title)}</text>')
+        body = (f'<rect x="0.5" y="0.5" width="{w - 1}" height="35" rx="10" fill="#1a1a22" stroke="{h["bright"]}" stroke-opacity=".7"/>'
+                f'<rect x="10" y="6" width="{tagw}" height="24" rx="12" fill="{h["bright"]}"/>'
+                f'<text x="{10 + tagw / 2}" y="23" text-anchor="middle" fill="{h["deep"]}" font-size="13" font-weight="700">{escape(tag)}</text>'
+                f'<text x="{10 + tagw + 14}" y="23" fill="#9ca3af" font-size="13">{escape(when)}</text>'
+                f'<text x="{10 + tagw + 14 + tw(when, 13) + 16:.0f}" y="23" fill="#f3f4f6" font-size="16" font-weight="700">{escape(title)}</text>')
         write(f"story/{slug}.svg", svg(w, 36, body))
 
 
-def main():
-    for d in ("zones", "badges", "nav", "story", "routines"):
+def clean():
+    for d in ("zones", "badges", "nav", "story", "routines", "labels", "items"):
         shutil.rmtree(HERE / d, ignore_errors=True)
-    shutil.rmtree(HERE / "labels", ignore_errors=True)
-    for slug, z in ZONES.items():
-        write(f"zones/{slug}.svg", zone_svg(*z))
-    make_badges()
+
+
+def main():
+    clean()
+    for slug in ZONES:
+        write(f"zones/{slug}.svg", zone_svg(slug))
     banner()
-    pills = make_pills()
+    make_pills()
     make_short()
     make_routines()
     if (HERE / "story-versions.json").exists():

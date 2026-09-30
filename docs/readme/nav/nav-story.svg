@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="87" height="30" viewBox="0 0 87 30" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="30" viewBox="0 0 103 30" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
 
-<rect x="0.5" y="0.5" width="86" height="29" rx="15" fill="#8b8bf0" stroke="#8b8bf0"/>
-<text x="43.5" y="20" text-anchor="middle" fill="#131016" font-size="13" font-weight="700" font-family="Verdana, Segoe UI, -apple-system, Helvetica, Arial, sans-serif">Story ↓</text>
+<rect x="0.5" y="0.5" width="102" height="29" rx="15" fill="#6d28d9" stroke="#a78bfa" stroke-width="1.5"/>
+<circle cx="16" cy="15" r="4.5" fill="#ffffff"/>
+<text x="64.5" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700" font-family="Verdana, Segoe UI, -apple-system, Helvetica, Arial, sans-serif">Story ↓</text>
 </svg>

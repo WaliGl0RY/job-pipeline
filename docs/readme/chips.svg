@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="641" height="28" viewBox="0 0 641 28" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+
+<rect x="2.5" y="1.5" width="231" height="25" rx="12.5" fill="#16161d" stroke="#6b7280"/><text x="118.0" y="18.5" text-anchor="middle" fill="#d1d5db" font-size="13">Python, standard library only</text>
+<rect x="241.5" y="1.5" width="67" height="25" rx="12.5" fill="#16161d" stroke="#6b7280"/><text x="275.0" y="18.5" text-anchor="middle" fill="#d1d5db" font-size="13">SQLite</text>
+<rect x="316.5" y="1.5" width="60" height="25" rx="12.5" fill="#16161d" stroke="#6b7280"/><text x="346.5" y="18.5" text-anchor="middle" fill="#d1d5db" font-size="13">LaTeX</text>
+<rect x="384.5" y="1.5" width="124" height="25" rx="12.5" fill="#16161d" stroke="#6b7280"/><text x="446.5" y="18.5" text-anchor="middle" fill="#d1d5db" font-size="13">MCP connectors</text>
+<rect x="516.5" y="1.5" width="117" height="25" rx="12.5" fill="#16161d" stroke="#6b7280"/><text x="575.0" y="18.5" text-anchor="middle" fill="#d1d5db" font-size="13">one HTML file</text>
+</svg>

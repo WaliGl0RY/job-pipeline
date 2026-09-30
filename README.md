@@ -1,12 +1,12 @@
-<p><a href="#dashboard"><img src="docs/readme/banner.svg" alt="Your job pipeline: find postings, score them against my CV, prepare applications and track replies. Dashboard tiles with fictional demo data: 5 applied, 3 in the mail, 1 invitation, 8 open chances, 2 packages ready, best match 91 %" width="100%"></a></p>
+<p align="center"><a href="#dashboard"><img src="docs/readme/banner.svg" alt="Your job pipeline: find postings, score them against my CV, prepare applications and track replies. Dashboard tiles with fictional demo data: 5 applied, 3 in the mail, 1 invitation, 8 open chances, 2 packages ready, best match 91 %" width="100%"></a></p>
 
-<p>
-  <a href="routines/"><img src="https://img.shields.io/static/v1?label=routines&message=3" alt="routines: 3"></a>
-  <a href="core/"><img src="https://img.shields.io/static/v1?label=core%20Python%20modules&message=5" alt="core Python modules: 5"></a>
-  <a href="docs/SETUP.md#2-requirements"><img src="https://img.shields.io/static/v1?label=third-party%20dependencies&message=0" alt="third-party dependencies: 0"></a>
-  <a href="docs/SETUP.md#5-connectors"><img src="https://img.shields.io/static/v1?label=connectors&message=3" alt="connectors: 3"></a>
-  <a href="#all-33-fixes"><img src="https://img.shields.io/static/v1?label=documented%20fixes&message=33" alt="documented fixes: 33"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&message=MIT" alt="license: MIT"></a>
+<p align="center">
+  <a href="routines/"><img src="https://img.shields.io/static/v1?label=routines&message=3&color=7c3aed&labelColor=1b1b24" alt="routines: 3"></a>
+  <a href="core/"><img src="https://img.shields.io/static/v1?label=core%20Python%20modules&message=5&color=2563eb&labelColor=1b1b24" alt="core Python modules: 5"></a>
+  <a href="docs/SETUP.md#2-requirements"><img src="https://img.shields.io/static/v1?label=third-party%20dependencies&message=0&color=15803d&labelColor=1b1b24" alt="third-party dependencies: 0"></a>
+  <a href="docs/SETUP.md#5-connectors"><img src="https://img.shields.io/static/v1?label=connectors&message=3&color=0e7490&labelColor=1b1b24" alt="connectors: 3"></a>
+  <a href="#all-33-fixes"><img src="https://img.shields.io/static/v1?label=documented%20fixes&message=33&color=be185d&labelColor=1b1b24" alt="documented fixes: 33"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&message=MIT&color=b45309&labelColor=1b1b24" alt="license: MIT"></a>
 </p>
 
 <p align="center">
@@ -15,6 +15,9 @@
   <a href="#applications"><img src="docs/readme/nav/nav-applications.svg" alt="Applications" height="30"></a>
   <a href="#replies"><img src="docs/readme/nav/nav-replies.svg" alt="Replies" height="30"></a>
   <a href="#routines"><img src="docs/readme/nav/nav-routines.svg" alt="Routines" height="30"></a>
+</p>
+
+<p align="center">
   <a href="#guardrails"><img src="docs/readme/nav/nav-guardrails.svg" alt="Guardrails" height="30"></a>
   <a href="#architecture"><img src="docs/readme/nav/nav-architecture.svg" alt="Architecture" height="30"></a>
   <a href="#use-it-yourself"><img src="docs/readme/nav/nav-use-it-yourself.svg" alt="Use it yourself" height="30"></a>
@@ -24,65 +27,87 @@
 <a name="story"></a>
 <p><a href="#the-story"><img src="docs/readme/short-version.svg" alt="The short version. It began on 10 July as a design where a paid model API scored every job and forms were submitted automatically. Bugs reshaped it: a blank dashboard, a stale database journal, drifting rules, silent filters. Now: agent routines around one SQLite file, no API key, a human before every application." width="100%"></a></p>
 
-<p><a href="#the-story"><img src="docs/readme/read-full-story.svg" alt="Read the full story" height="40"></a></p>
+<p align="center"><a href="#the-story"><img src="docs/readme/read-full-story.svg" alt="Read the full story" height="40"></a></p>
+
+---
+
+<a name="see-it-work"></a>
+<p><a href="#see-it-work"><img src="docs/readme/zones/demo.svg" alt="01 See it work: a short tour of the dashboard, demo data only" width="100%"></a></p>
+
+<p align="center"><a href="#dashboard"><img src="docs/images/dashboard-tour.gif" alt="Animated tour of the dashboard with fictional demo data: the overview with stat tiles, a search filter, a job detail panel with the invitation and mail history, copying the interview-prep prompt, and back to the overview" width="960"></a></p>
+
+<p align="center"><sub>1 Overview · 2 Filter · 3 Job detail · 4 Copy the prompt · 5 Back to the overview. Fictional demo data.</sub></p>
 
 ---
 
 <a name="dashboard"></a>
-<p><a href="#dashboard"><img src="docs/readme/zones/dashboard.svg" alt="01 The dashboard: review jobs, replies and next steps on one page" width="100%"></a></p>
+<p><a href="#dashboard"><img src="docs/readme/zones/dashboard.svg" alt="02 The dashboard: review jobs, replies and next steps on one page" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#dashboard"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Four tabs, one HTML file</b><br><sub>overview, inbox, search radar and all jobs; no libraries, no network calls</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#dashboard"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>Every action copies a prompt</b><br><sub>approve, discard, tailor, search, interview prep: paste it into the Claude chat</sub><br>The page itself has no write access, so a human stays in the loop and nothing changes without you seeing it.</td></tr>
-> </table>
+> <a href="#dashboard"><img src="docs/readme/items/dashboard-1.svg" alt="1. Four tabs, one HTML file: overview, inbox, search radar and all jobs; no libraries, no network calls" width="100%"></a>
+>
+> <a href="#dashboard"><img src="docs/readme/items/dashboard-2.svg" alt="2. Every action copies a prompt: approve, discard, tailor, search, interview prep: paste it into the Claude chat" width="100%"></a>
+>
+> <sub>The page itself has no write access, so a human stays in the loop and nothing changes without you seeing it.</sub>
 
 <p><a href="docs/SETUP.md#3-install-and-run-the-demo"><img src="docs/readme/dashboard-main.png" alt="Dashboard overview with application counters, search radar, inbox and top matches (demo data)" width="100%"></a></p>
 
 <p><a href="core/dashboard_template.html"><img src="docs/readme/dashboard-job-detail.png" alt="Job detail panel with the invitation, mail history, skill match and copy-to-chat buttons (demo data)" width="100%"></a></p>
 
-The job detail panel: match and freshness, the invitation and mail history from the reply scan, the skill match, and the next step as a prompt to copy.
-
-<sub>Both screenshots use the included demo data. All companies are fictional.</sub>
+<sub>The job detail panel: match and freshness, the invitation and mail history from the reply scan, the skill match, and the next step as a prompt to copy. Both screenshots use the included demo data. All companies are fictional.</sub>
 
 ---
 
 <a name="search-and-scoring"></a>
-<p><a href="#search-and-scoring"><img src="docs/readme/zones/search.svg" alt="02 Search and scoring: two sources, few filters, every reject logged" width="100%"></a></p>
+<p><a href="#search-and-scoring"><img src="docs/readme/zones/search.svg" alt="03 Search and scoring: two sources, few filters, every reject logged" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#search-and-scoring"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Two job sources, one pass</b><br><sub>an Apify job-listing actor does a few broad sweeps; the Indeed connector runs many narrow queries</sub><br>Results are deduplicated on URL <b>and</b> on normalised company + title, because some short links change between requests.</td></tr>
-> <tr><td width="44" valign="top"><a href="#search-and-scoring"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>"Cast wide, then score"</b><br><sub>pre-scoring filters are few and specific, and exclusions only demote</sub><br>Every rejected posting is written to a log with a reason.</td></tr>
-> <tr><td width="44" valign="top"><a href="#search-and-scoring"><img src="docs/readme/badges/3.svg" width="32" height="32" alt="Item 3"></a></td><td valign="top"><b>Scoring by the agent, not a script</b><br><sub>a 0–100 match score, matching and missing skills and a one-line reason, judged against a snapshot of your CV</sub><br>Each new job gets scored; jobs under the threshold are never stored.</td></tr>
-> <tr><td width="44" valign="top"><a href="#search-and-scoring"><img src="docs/readme/badges/4.svg" width="32" height="32" alt="Item 4"></a></td><td valign="top"><b>Cheap by design</b><br><sub>the CV is only re-read when its sha256 hash changes, and no script calls a model</sub><br>The one paid source gets a spending cap on every call.</td></tr>
-> </table>
+> <a href="#search-and-scoring"><img src="docs/readme/items/search-1.svg" alt="1. Two job sources, one pass: an Apify job-listing actor does a few broad sweeps; Indeed runs many narrow queries" width="100%"></a>
+>
+> <sub>Results are deduplicated on URL <b>and</b> on normalised company + title, because some short links change between requests.</sub>
+>
+> <a href="#search-and-scoring"><img src="docs/readme/items/search-2.svg" alt="2. &quot;Cast wide, then score&quot;: pre-scoring filters are few and specific, and exclusions only demote" width="100%"></a>
+>
+> <sub>Every rejected posting is written to a log with a reason.</sub>
+>
+> <a href="#search-and-scoring"><img src="docs/readme/items/search-3.svg" alt="3. Scoring by the agent, not a script: a 0–100 match score, matching and missing skills and a one-line reason" width="100%"></a>
+>
+> <sub>Each new job is judged against a snapshot of your CV. Jobs under the threshold are never stored.</sub>
+>
+> <a href="#search-and-scoring"><img src="docs/readme/items/search-4.svg" alt="4. Cheap by design: the CV is only re-read when its sha256 hash changes; no script calls a model" width="100%"></a>
+>
+> <sub>The one paid source gets a spending cap on every call.</sub>
 
 ---
 
 <a name="applications"></a>
-<p><a href="#applications"><img src="docs/readme/zones/applications.svg" alt="03 Applications: optional, a CV and a cover letter per job" width="100%"></a></p>
+<p><a href="#applications"><img src="docs/readme/zones/applications.svg" alt="04 Applications: optional, a CV and a cover letter per job" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#applications"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>A package per queued job</b><br><sub>a LaTeX CV cut to a hard page limit and an editable <code>.docx</code> cover letter, in the language you set in the config</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#applications"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>One rule file</b><br><sub>the rules for both live in <a href="routines/process-tailor-queue.md"><code>routines/process-tailor-queue.md</code></a></sub><br>Truthful to your CV, no claimed specialization, content chosen per posting, a layout that survives applicant-tracking systems, and a letter that tells a short story instead of listing courses.</td></tr>
-> </table>
+> <a href="#applications"><img src="docs/readme/items/applications-1.svg" alt="1. A package per queued job: a LaTeX CV cut to a hard page limit and an editable .docx cover letter" width="100%"></a>
+>
+> <sub>Both are written in the language you set in the config.</sub>
+>
+> <a href="routines/process-tailor-queue.md"><img src="docs/readme/items/applications-2.svg" alt="2. One rule file: the rules for both live in routines/process-tailor-queue.md" width="100%"></a>
+>
+> <sub>Truthful to your CV, no claimed specialization, content chosen per posting, a layout that survives applicant-tracking systems, and a letter that tells a short story instead of listing courses.</sub>
 
 ---
 
 <a name="replies"></a>
-<p><a href="#replies"><img src="docs/readme/zones/replies.svg" alt="04 Replies: optional, invited, waiting or rejected" width="100%"></a></p>
+<p><a href="#replies"><img src="docs/readme/zones/replies.svg" alt="05 Replies: optional, invited, waiting or rejected" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#replies"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Scan by company name</b><br><sub>each application is classified as <i>invited</i>, <i>waiting</i> or <i>rejected</i> and shown in the dashboard's inbox</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#replies"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>Follow-up reminder</b><br><sub>shown after 14 days without an answer</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#replies"><img src="docs/readme/badges/3.svg" width="32" height="32" alt="Item 3"></a></td><td valign="top"><b>Never touches the database</b><br><sub>it only writes its own status file</sub></td></tr>
-> </table>
+> <a href="#replies"><img src="docs/readme/items/replies-1.svg" alt="1. Scan by company name: each application is classified as invited, waiting or rejected" width="100%"></a>
+>
+> <sub>The result is shown in the dashboard's inbox.</sub>
+>
+> <a href="#replies"><img src="docs/readme/items/replies-2.svg" alt="2. Follow-up reminder: shown after 14 days without an answer" width="100%"></a>
+>
+> <a href="#replies"><img src="docs/readme/items/replies-3.svg" alt="3. Never touches the database: it only writes its own status file" width="100%"></a>
 
 ---
 
 <a name="routines"></a>
-<p><a href="#routines"><img src="docs/readme/zones/routines.svg" alt="05 How it runs in Claude: three routines, as scheduled tasks" width="100%"></a></p>
+<p><a href="#routines"><img src="docs/readme/zones/routines.svg" alt="06 How it runs in Claude: three routines, as scheduled tasks" width="100%"></a></p>
 
-The three routines as they look in Claude's scheduled tasks. Each card links to the section that describes it. The grey bars stand where the folder and the project name would be.
+<sub>The three routines as they look in Claude's scheduled tasks. Each card links to the section that describes it. The grey bars stand where the folder and the project name would be.</sub>
 
 <p><a href="#search-and-scoring"><img src="docs/readme/routines/search-jobs.svg" alt="Routine card: Search jobs. Search new Werkstudent jobs via BOTH Apify LinkedIn + Indeed MCP (10-day window, wide sweep), score vs CV snapshot, insert &gt;=50% into jobs.db, rebuild dashboard. Badge: Only on this computer." width="100%"></a></p>
 
@@ -90,24 +115,29 @@ The three routines as they look in Claude's scheduled tasks. Each card links to 
 
 <p><a href="#replies"><img src="docs/readme/routines/scan-mail-status.svg" alt="Routine card: Scan mail status. You maintain the job-application mail status for the project at (hidden). Do exactly this, self-contained: 1. Read the job list from the SQLite DB… Badges: Paused, Requires your computer." width="100%"></a></p>
 
-None of the routines runs on a timer, I start them myself (frequency: manual). Search jobs and Process tailor queue show "Only on this computer" because they use local files, so they run only while Claude Desktop is open on my computer. Scan mail status is paused at the moment.
+<sub>None of the routines runs on a timer, I start them myself (frequency: manual). Search jobs and Process tailor queue show "Only on this computer" because they use local files, so they run only while Claude Desktop is open on my computer. Scan mail status is paused at the moment.</sub>
 
 ---
 
 <a name="guardrails"></a>
-<p><a href="#guardrails"><img src="docs/readme/zones/guardrails.svg" alt="06 Guardrails: nothing deleted, every write checked" width="100%"></a></p>
+<p><a href="#guardrails"><img src="docs/readme/zones/guardrails.svg" alt="07 Guardrails: nothing deleted, every write checked" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#guardrails"><img src="docs/readme/badges/check.svg" width="32" height="32" alt="Item check"></a></td><td valign="top"><b>Nothing is deleted</b><br><sub>rows in <code>jobs.db</code> are never deleted; only their status changes</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#guardrails"><img src="docs/readme/badges/check.svg" width="32" height="32" alt="Item check"></a></td><td valign="top"><b>Every write is checked</b><br><sub>each file write is checksummed and read back; stale SQLite journals are cleaned up before connecting</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#guardrails"><img src="docs/readme/badges/check.svg" width="32" height="32" alt="Item check"></a></td><td valign="top"><b>The build verifies itself</b><br><sub>the dashboard build refuses a truncated template, verifies its own output and prints <code>OK</code> or <code>BUILD FAILED</code></sub><br>No routine reports success without <code>OK</code>.</td></tr>
-> <tr><td width="44" valign="top"><a href="#guardrails"><img src="docs/readme/badges/check.svg" width="32" height="32" alt="Item check"></a></td><td valign="top"><b>You apply yourself</b><br><sub>nothing is ever submitted automatically</sub></td></tr>
-> </table>
+> <a href="#guardrails"><img src="docs/readme/items/guardrails-1.svg" alt="check. Nothing is deleted: rows in jobs.db are never deleted; only their status changes" width="100%"></a>
+>
+> <a href="#guardrails"><img src="docs/readme/items/guardrails-2.svg" alt="check. Every write is checked: each file write is checksummed and read back" width="100%"></a>
+>
+> <sub>Stale SQLite journals are cleaned up before connecting.</sub>
+>
+> <a href="#guardrails"><img src="docs/readme/items/guardrails-3.svg" alt="check. The build verifies itself: it refuses a truncated template and prints OK or BUILD FAILED" width="100%"></a>
+>
+> <sub>No routine reports success without <code>OK</code>.</sub>
+>
+> <a href="#guardrails"><img src="docs/readme/items/guardrails-4.svg" alt="check. You apply yourself: nothing is ever submitted automatically" width="100%"></a>
 
 ---
 
 <a name="architecture"></a>
-<p><a href="#architecture"><img src="docs/readme/zones/architecture.svg" alt="07 Architecture: routines, connectors, one data folder" width="100%"></a></p>
+<p><a href="#architecture"><img src="docs/readme/zones/architecture.svg" alt="08 Architecture: routines, connectors, one data folder" width="100%"></a></p>
 
 ```mermaid
 flowchart LR
@@ -158,82 +188,83 @@ flowchart LR
     HTML -. "copy a prompt,<br/>paste into chat" .-> Claude
 ```
 
-The Python side is small on purpose: five standard-library modules. The "program" is the three routine files in [`routines/`](routines/), which a Claude agent follows step by step.
+<p><a href="#architecture"><img src="docs/readme/chips.svg" alt="Stack: Python (standard library only), SQLite, LaTeX, MCP connectors, one HTML file" height="28"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b><a href="routines/search-jobs.md"><code>routines/search-jobs.md</code></a></b><br><sub>search both sources, filter, dedupe, score, insert, rebuild</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b><a href="routines/process-tailor-queue.md"><code>routines/process-tailor-queue.md</code></a></b><br><sub><i>optional.</i> Tailored CV + cover letter per queued job</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/3.svg" width="32" height="32" alt="Item 3"></a></td><td valign="top"><b><a href="routines/scan-mail-status.md"><code>routines/scan-mail-status.md</code></a></b><br><sub><i>optional.</i> Classify replies from the mailbox</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/4.svg" width="32" height="32" alt="Item 4"></a></td><td valign="top"><b><a href="core/job_database.py"><code>core/job_database.py</code></a></b><br><sub>SQLite schema + CRUD, stale-journal cleanup, <code>verify()</code></sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/5.svg" width="32" height="32" alt="Item 5"></a></td><td valign="top"><b><a href="core/safe_io.py"><code>core/safe_io.py</code></a></b><br><sub>write → fsync → checksum → re-read → retry</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/6.svg" width="32" height="32" alt="Item 6"></a></td><td valign="top"><b><a href="core/export_dashboard_data.py"><code>core/export_dashboard_data.py</code></a></b><br><sub>read-only export of the data layer to JSON</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/7.svg" width="32" height="32" alt="Item 7"></a></td><td valign="top"><b><a href="core/build_dashboard.py"><code>core/build_dashboard.py</code></a></b><br><sub>embed the data into the template and verify the result</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/8.svg" width="32" height="32" alt="Item 8"></a></td><td valign="top"><b><a href="core/dashboard_template.html"><code>core/dashboard_template.html</code></a></b><br><sub>the dashboard: one file, no libraries, no network calls</sub></td></tr>
-> <tr><td width="44" valign="top"><a href="#architecture"><img src="docs/readme/badges/9.svg" width="32" height="32" alt="Item 9"></a></td><td valign="top"><b><a href="demo/generate_demo_data.py"><code>demo/generate_demo_data.py</code></a></b><br><sub>a complete fictional data layer for trying it out</sub></td></tr>
-> </table>
+<sub>The Python side is small on purpose: five standard-library modules. The "program" is the three routine files in [`routines/`](routines/), which a Claude agent follows step by step.</sub>
+
+> <a href="routines/search-jobs.md"><img src="docs/readme/items/architecture-1.svg" alt="1. routines/search-jobs.md: search both sources, filter, dedupe, score, insert, rebuild" width="100%"></a>
+>
+> <a href="routines/process-tailor-queue.md"><img src="docs/readme/items/architecture-2.svg" alt="2. routines/process-tailor-queue.md: optional: tailored CV + cover letter per queued job" width="100%"></a>
+>
+> <a href="routines/scan-mail-status.md"><img src="docs/readme/items/architecture-3.svg" alt="3. routines/scan-mail-status.md: optional: classify replies from the mailbox" width="100%"></a>
+>
+> <a href="core/job_database.py"><img src="docs/readme/items/architecture-4.svg" alt="4. core/job_database.py: SQLite schema + CRUD, stale-journal cleanup, verify()" width="100%"></a>
+>
+> <a href="core/safe_io.py"><img src="docs/readme/items/architecture-5.svg" alt="5. core/safe_io.py: write → fsync → checksum → re-read → retry" width="100%"></a>
+>
+> <a href="core/export_dashboard_data.py"><img src="docs/readme/items/architecture-6.svg" alt="6. core/export_dashboard_data.py: read-only export of the data layer to JSON" width="100%"></a>
+>
+> <a href="core/build_dashboard.py"><img src="docs/readme/items/architecture-7.svg" alt="7. core/build_dashboard.py: embed the data into the template and verify the result" width="100%"></a>
+>
+> <a href="core/dashboard_template.html"><img src="docs/readme/items/architecture-8.svg" alt="8. core/dashboard_template.html: the dashboard: one file, no libraries, no network calls" width="100%"></a>
+>
+> <a href="demo/generate_demo_data.py"><img src="docs/readme/items/architecture-9.svg" alt="9. demo/generate_demo_data.py: a complete fictional data layer for trying it out" width="100%"></a>
 
 ---
 
 <a name="use-it-yourself"></a>
-<p><a href="#use-it-yourself"><img src="docs/readme/zones/use.svg" alt="08 Use it yourself: setup guide, demo data first" width="100%"></a></p>
+<p><a href="#use-it-yourself"><img src="docs/readme/zones/use.svg" alt="09 Use it yourself: setup guide, demo data first" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#use-it-yourself"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Try the demo data first</b><br><sub>a complete fictional data layer, no CV and no connectors needed</sub><br><code>python demo/generate_demo_data.py</code>, then <code>python core/build_dashboard.py</code></td></tr>
-> <tr><td width="44" valign="top"><a href="#use-it-yourself"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>Then make it yours</b><br><sub>your CV, search settings, connectors and scheduled tasks</sub><br>Follow <b><a href="docs/SETUP.md">docs/SETUP.md</a></b>.</td></tr>
-> </table>
+> <a href="#use-it-yourself"><img src="docs/readme/items/use-1.svg" alt="1. Try the demo data first: a complete fictional data layer; no CV and no connectors needed" width="100%"></a>
+>
+> <sub><code>python demo/generate_demo_data.py</code>, then <code>python core/build_dashboard.py</code></sub>
+>
+> <a href="docs/SETUP.md"><img src="docs/readme/items/use-2.svg" alt="2. Then make it yours: your CV, search settings, connectors and scheduled tasks" width="100%"></a>
+>
+> <sub>Follow <b><a href="docs/SETUP.md">docs/SETUP.md</a></b>.</sub>
 
 ---
 
 <a name="honest-notes"></a>
-<p><a href="#honest-notes"><img src="docs/readme/zones/notes.svg" alt="09 Honest notes: limitations, security, AI, license" width="100%"></a></p>
+<p><a href="#honest-notes"><img src="docs/readme/zones/notes.svg" alt="10 Honest notes: limitations, security, AI, license" width="100%"></a></p>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Known limitations</b><br><sub>what it doesn't do, one line each</sub></td></tr>
-> </table>
+> <a href="#honest-notes"><img src="docs/readme/items/notes-1.svg" alt="1. Known limitations: what it doesn&#x27;t do, one line each" width="100%"></a>
 >
-> - It needs a Claude plan with scheduled tasks and connectors, and the Claude desktop app with access to this folder; nothing runs on its own.
-> - Not every connector and scheduled-task step in the setup guide has been checked click by click in the app yet.
-> - Both job sources are mandatory: if Apify or Indeed fails, the whole search run counts as failed.
-> - The Apify job-listing actor you choose may charge per result; every call has a spending cap, but the cost depends on that actor.
-> - Whether the Indeed connector costs anything isn't documented here.
-> - Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice.
-> - There are no automated tests, and the company + title deduplication lives in the routine text, not in code.
-> - The dashboard is a snapshot: changes only show after a rebuild and republish.
-> - The dashboard's layout overflows sideways at phone width.
-> - In light mode, a faint shadow strip shows at the right edge of the dashboard.
-> - Without a LaTeX engine, tailored CVs stay as `.tex` source; no PDF is made.
-> - The dashboard's interface is English only; the documents follow `output_language` in the config.
+> - <sub>It needs a Claude plan with scheduled tasks and connectors, and the Claude desktop app with access to this folder; nothing runs on its own.</sub>
+> - <sub>Not every connector and scheduled-task step in the setup guide has been checked click by click in the app yet.</sub>
+> - <sub>Both job sources are mandatory: if Apify or Indeed fails, the whole search run counts as failed.</sub>
+> - <sub>The Apify job-listing actor you choose may charge per result; every call has a spending cap, but the cost depends on that actor.</sub>
+> - <sub>Whether the Indeed connector costs anything isn't documented here.</sub>
+> - <sub>Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice.</sub>
+> - <sub>There are no automated tests, and the company + title deduplication lives in the routine text, not in code.</sub>
+> - <sub>The dashboard is a snapshot: changes only show after a rebuild and republish.</sub>
+> - <sub>The dashboard's layout overflows sideways at phone width.</sub>
+> - <sub>In light mode, a faint shadow strip shows at the right edge of the dashboard.</sub>
+> - <sub>Without a LaTeX engine, tailored CVs stay as <code>.tex</code> source; no PDF is made.</sub>
+> - <sub>The dashboard's interface is English only; the documents follow <code>output_language</code> in the config.</sub>
 >
-> <table>
-> <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>Security scope</b><br><sub>what stays on your machine and what Claude sees</sub></td></tr>
-> </table>
+> <a href="#honest-notes"><img src="docs/readme/items/notes-2.svg" alt="2. Security scope: what stays on your machine and what Claude sees" width="100%"></a>
 >
-> The routines read job postings through the Apify and Indeed connectors and, for the optional reply scan, the mails that match your companies' names through the Gmail connector. They write only to local files in this repository (the SQLite file, JSON files, the application packages and the exported dashboard page) and republish that page as a Claude artifact. The dashboard has no write access, nothing is submitted automatically (you apply yourself), and the routines never delete rows in the database, only change their status. Every file write is checksummed and read back. No model API key is stored anywhere: the logins for Apify, Indeed and Gmail live in Claude's connector settings, not in this repository.
+> <sub>The routines read job postings through the Apify and Indeed connectors and, for the optional reply scan, the mails that match your companies' names through the Gmail connector. They write only to local files in this repository (the SQLite file, JSON files, the application packages and the exported dashboard page) and republish that page as a Claude artifact. The dashboard has no write access, nothing is submitted automatically (you apply yourself), and the routines never delete rows in the database, only change their status. Every file write is checksummed and read back. No model API key is stored anywhere: the logins for Apify, Indeed and Gmail live in Claude's connector settings, not in this repository.</sub>
 >
-> <table>
-> <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/3.svg" width="32" height="32" alt="Item 3"></a></td><td valign="top"><b>Built with AI</b><br><sub>I decided and tested; Claude was the coding assistant</sub></td></tr>
-> </table>
+> <a href="#honest-notes"><img src="docs/readme/items/notes-3.svg" alt="3. Built with AI: I decided and tested; Claude was the coding assistant" width="100%"></a>
 >
-> I decided what to build and how it should behave, and I tested the result. Claude was the coding assistant. At runtime the pipeline is Claude routines too, on a Claude subscription, with no model API key.
+> <sub>I decided what to build and how it should behave, and I tested the result. Claude was the coding assistant. At runtime the pipeline is Claude routines too, on a Claude subscription, with no model API key.</sub>
 >
-> <table>
-> <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/4.svg" width="32" height="32" alt="Item 4"></a></td><td valign="top"><b>License</b><br><sub>MIT, see <a href="LICENSE">LICENSE</a></sub></td></tr>
-> </table>
+> <a href="LICENSE"><img src="docs/readme/items/notes-4.svg" alt="4. License: MIT, see the LICENSE file" width="100%"></a>
 
 ---
 
 <a name="the-story"></a>
-<p><a href="#the-story"><img src="docs/readme/zones/story.svg" alt="10 The full story: version by version, with the bugs that shaped it" width="100%"></a></p>
+<p><a href="#the-story"><img src="docs/readme/zones/story.svg" alt="11 The full story: version by version, with the bugs that shaped it" width="100%"></a></p>
 
-How this pipeline got from a per-token API script to agent routines around one SQLite file, reconstructed from dated notes, change logs and archived files. Facts only; all dates are 2026. Where something wasn't recorded, it's left out.
+<sub>How this pipeline got from a per-token API script to agent routines around one SQLite file, reconstructed from dated notes, change logs and archived files. Facts only; all dates are 2026. Where something wasn't recorded, it's left out.</sub>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Origin</b><br><sub>why I started building this</sub><br>I was looking for a Werkstudent job, and every application meant the same steps: find postings, check them against my CV, write a CV and cover letter, keep track of replies. I built one place to do that, with Claude as the agent.</td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-1.svg" alt="1. Origin: why I started building this" width="100%"></a>
+>
+> <sub>I was looking for a Werkstudent job, and every application meant the same steps: find postings, check them against my CV, write a CV and cover letter, keep track of replies. I built one place to do that, with Claude as the agent.</sub>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>Job search</b><br><sub>from a paid-API script to a scheduled task and "cast wide, then score"</sub></td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-2.svg" alt="2. Job search: from a paid-API script to a scheduled task and &quot;cast wide, then score&quot;" width="100%"></a>
 >
 > <a href="#the-story"><img src="docs/readme/story/js-v0.svg" alt="v0 · 10 July · A design with a model bill" width="100%"></a>
 >
@@ -257,7 +288,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > <tr><td width="150" valign="top"><b>What I built</b></td><td valign="top">The search became a scheduled task. The profile file and the scoring script were retired. Claude reads the master CV once and stores a skills snapshot plus the CV's sha256 hash; every run compares the hash first and re-reads the CV only when it has changed. Scoring happens in the agent turn, with no API call. On 16 July jobs below a match-score threshold stopped being inserted; on 24 July the threshold was raised to 50 and two narrow search queries were added.</td></tr>
 > </table>
 >
-> <a href="#the-story"><img src="docs/readme/story/js-v3.svg" alt="v3 · 5 August · Cast wide, then score" width="100%"></a>
+> <a href="#the-story"><img src="docs/readme/story/js-v3.svg" alt="v3 · 5 August · &quot;Cast wide, then score&quot;" width="100%"></a>
 >
 > <table>
 > <tr><td width="150" valign="top"><b>The bug that shipped</b></td><td valign="top">One of the best-fitting postings of the whole search, an AI and data-analysis role filed under an after-sales department, was missed for a full cycle. Three things caused it at once: search terms with technology words that its title didn't contain, the job-function filter inside the scraper (the role wasn't filed under IT), and a bare "sales" in the exclusion list. Separately, Indeed's short links turned out to change on every request, so URL-only deduplication would have inserted six duplicates in one run, and postings found late in a 30-day window were often already closed.</td></tr>
@@ -266,9 +297,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 >
 > **27 September.** The old slash command was archived; the scheduled task is the only way the search runs.
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/3.svg" width="32" height="32" alt="Item 3"></a></td><td valign="top"><b>CV tailoring</b><br><sub>from one sentence in a prompt to one routine with a quality bar</sub></td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-3.svg" alt="3. CV tailoring: from one sentence in a prompt to one routine with a quality bar" width="100%"></a>
 >
 > <a href="#the-story"><img src="docs/readme/story/cv-v0.svg" alt="v0 · 10–12 July · A sentence in a prompt" width="100%"></a>
 >
@@ -330,9 +359,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > <tr><td width="150" valign="top"><b>What I built</b></td><td valign="top">Abbreviations changed from "write them out" to "full term with the abbreviation in brackets the first time, then the abbreviation only", and the output language became a config setting.</td></tr>
 > </table>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/4.svg" width="32" height="32" alt="Item 4"></a></td><td valign="top"><b>Motivation letter</b><br><sub>from half a page of LaTeX to an editable Word letter with a plain structure</sub></td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-4.svg" alt="4. Motivation letter: from half a page of LaTeX to an editable Word letter with a plain structure" width="100%"></a>
 >
 > <a href="#the-story"><img src="docs/readme/story/ml-v0.svg" alt="v0 · 10–12 July · Half a page from the posting" width="100%"></a>
 >
@@ -384,9 +411,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > <tr><td width="150" valign="top"><b>What I built</b></td><td valign="top">Written down as explicit rules: name 2–3 concrete tasks from the posting, greet a named contact person by name, write start dates so they can't be read as end dates, abbreviations in full the first time, and the output language as a setting.</td></tr>
 > </table>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/5.svg" width="32" height="32" alt="Item 5"></a></td><td valign="top"><b>Dashboard</b><br><sub>from a data layer to a page that copies prompts instead of writing</sub></td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-5.svg" alt="5. Dashboard: from a data layer to a page that copies prompts instead of writing" width="100%"></a>
 >
 > <a href="#the-story"><img src="docs/readme/story/db-data.svg" alt="v0 · 10–11 July · Data layer first" width="100%"></a>
 >
@@ -420,7 +445,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > <tr><td width="150" valign="top"><b>The fix</b></td><td valign="top">The exporter started hiding jobs below the match threshold from the dashboard.</td></tr>
 > </table>
 >
-> <a href="#the-story"><img src="docs/readme/story/db-v3.svg" alt="v3 · 24 July · Copy for Claude" width="100%"></a>
+> <a href="#the-story"><img src="docs/readme/story/db-v3.svg" alt="v3 · 24 July · &quot;Copy for Claude&quot;" width="100%"></a>
 >
 > <table>
 > <tr><td width="150" valign="top"><b>What I built</b></td><td valign="top">The current layout: four tabs (overview, inbox, search radar, all jobs), a slide-in detail panel and a tailoring tray. When a live action fails, the page falls back to a "copy for Claude" button: it copies a ready-made prompt, you paste it into the chat, and Claude does the step.</td></tr>
@@ -440,9 +465,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > <tr><td width="150" valign="top"><b>The fix</b></td><td valign="top">The null bytes were removed; for the public version the bridge code was removed from the template, the UI was translated to English, and both layout bugs were fixed.</td></tr>
 > </table>
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/6.svg" width="32" height="32" alt="Item 6"></a></td><td valign="top"><b>Tools and connectors</b><br><sub>what came in, what it solved, what it replaced</sub></td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-6.svg" alt="6. Tools and connectors: what came in, what it solved, what it replaced" width="100%"></a>
 >
 > | Tool | Came in | Solved | Replaced |
 > |---|---|---|---|
@@ -455,9 +478,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > | CV snapshot with hash check | 14 July | scoring and tailoring always read the current CV, but only re-read it when its sha256 hash changes, so an unchanged CV costs nothing | a separate JSON profile file and the script that synced it from the CV |
 > | SQLite | the 10 July design; the database was created on 11 July | one queryable source of truth for jobs, applications and replies, where rows are never deleted, only their status changes | a legacy JSON job list (archived 13 July) |
 
-> <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/7.svg" width="32" height="32" alt="Item 7"></a></td><td valign="top"><b>The bugs that changed the design</b><br><sub>nine of them, each with what it changed</sub></td></tr>
-> </table>
+> <a href="#the-story"><img src="docs/readme/items/story-7.svg" alt="7. The bugs that changed the design: nine of them, each with what it changed" width="100%"></a>
 >
 > | When | Bug | What went wrong | What changed |
 > |---|---|---|---|
@@ -472,9 +493,7 @@ How this pipeline got from a per-token API script to agent routines around one S
 > | 5 August | **Rotating short links would have created six duplicates** | — | Deduplication on the posting's identity (normalised company + title), not only its URL. |
 
 <a name="all-33-fixes"></a>
-> <table>
-> <tr><td width="44" valign="top"><a href="#all-33-fixes"><img src="docs/readme/badges/8.svg" width="32" height="32" alt="Item 8"></a></td><td valign="top"><b>All 33 fixes</b><br><sub>date, what broke, what it taught</sub></td></tr>
-> </table>
+> <a href="#all-33-fixes"><img src="docs/readme/items/story-8.svg" alt="8. All 33 fixes: date, what broke, what it taught" width="100%"></a>
 >
 > <details>
 > <summary>Show the full list (date – what broke – what it taught)</summary>

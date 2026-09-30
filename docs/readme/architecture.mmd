@@ -1,0 +1,46 @@
+flowchart LR
+    subgraph Claude["Claude (subscription): scheduled tasks / chat"]
+        S["search-jobs"]
+        T["process-tailor-queue<br/>(optional)"]
+        M["scan-mail-status<br/>(optional)"]
+    end
+
+    subgraph MCP["MCP connectors"]
+        A["Apify<br/>job-listing actor"]
+        I["Indeed"]
+        G["Gmail"]
+    end
+
+    subgraph Data["data/ (single source of truth)"]
+        DB[("jobs.db<br/>jobs · applications · responses")]
+        DESC["descriptions.json"]
+        CV["cv_profile/<br/>snapshot + sha256 gate"]
+        Q["tailor_queue.json"]
+        MS["mail_status.json"]
+        PK["packages/&lt;job&gt;/<br/>CV .tex/.pdf · cover letter .docx"]
+        LOG["skipped_log.json"]
+    end
+
+    CFG["config/<br/>search_keywords.json<br/>cv_emphasis.json"] --> S
+    A --> S
+    I --> S
+    S -- "INSERT if score ≥ 50" --> DB
+    S --> DESC
+    S --> LOG
+    CV --> S
+    CV --> T
+    Q --> T
+    T -- "status UPDATE only" --> DB
+    T --> PK
+    G --> M
+    DB -. "read-only" .-> M
+    M --> MS
+
+    DB --> EX["core/export_dashboard_data.py"]
+    DESC --> EX
+    PK --> EX
+    Q --> EX
+    MS --> EX
+    EX --> BD["core/build_dashboard.py<br/>self-verifying, prints OK"]
+    BD --> HTML["data/dashboard.html<br/>published as an artifact"]
+    HTML -. "copy a prompt,<br/>paste into chat" .-> Claude
