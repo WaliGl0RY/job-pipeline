@@ -1,0 +1,24 @@
+<!--
+  MINI LABEL · template (README-STANDARD.md § Components → Mini label).
+  Replaces a subsection heading or a <summary> title in zones 3–5.
+
+  Placeholders:
+    {{ZONE_BASE}}   zone colour, saturated          ← per repo, from the palette
+    {{ZONE_LIGHT}}  zone colour, light tint         ← per repo
+    {{TITLE}}       bold title                      e.g. Settings
+    {{SUBTITLE}}    muted line after the title      e.g. environment variables, all optional
+                    (no subtitle: delete the whole second <tspan>)
+    {{W}}           width = 40 + w(TITLE, 16px bold) + 12 + w("·  " + SUBTITLE, 14px) + 20
+                    w() = measured width, see README-STANDARD.md § Fonts and measuring
+    {{W_1}}         W − 1
+
+  The subtitle is a <tspan> on purpose: the browser places it right after the title,
+  whatever font it falls back to. Only the card width is estimated.
+  Delete this comment block in the finished file.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="{{W}}" height="36" viewBox="0 0 {{W}} 36" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<rect x="0.5" y="0.5" width="{{W_1}}" height="35" rx="9" fill="#131016" stroke="{{ZONE_BASE}}" stroke-opacity=".6"/>
+<rect x="0" y="8" width="4" height="20" rx="2" fill="{{ZONE_BASE}}"/>
+<circle cx="24" cy="18" r="5" fill="{{ZONE_BASE}}"/>
+<text x="40" y="24"><tspan fill="{{ZONE_LIGHT}}" font-size="16" font-weight="700">{{TITLE}}</tspan><tspan dx="12" fill="#b3aab4" font-size="14" font-weight="400">·  {{SUBTITLE}}</tspan></text>
+</svg>

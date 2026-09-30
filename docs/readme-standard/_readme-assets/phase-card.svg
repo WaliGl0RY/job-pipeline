@@ -1,0 +1,40 @@
+<!--
+  PHASE CARD · template (README-STANDARD.md § Components → Phase card). Zone 1, "How it grew".
+  Uses the colours of zone 1 (the story).
+
+  Placeholders:
+    {{ZONE_BASE}}   zone-1 colour, saturated        ← per repo, from the palette
+    {{ZONE_LIGHT}}  zone-1 colour, light tint       ← per repo (the "why" lines use it)
+    {{NN}}          phase number, two digits        01 … 08
+    {{TITLE}}       phase title (fits in 440 px at 21px bold)
+    {{META}}        date · commit count             e.g. 11.06.2026 · 5 commits
+    {{WHAT_1}} …    "what" lines, wrapped by measured width (max 500 px at 16px)
+    {{WHY_1}} …     "why" lines in italics, same width; first line starts with “, last ends with ”
+    {{H}}           card height (see below), {{H_1}} = H − 1, {{H_2}} = H − 2
+    {{BAR_H}}       accent bar height = min(52, H − 36)
+
+  Layout, all in px:
+    header       pill y 24–50, title baseline 44, meta baseline 74
+    what lines   first baseline 104, then +23 per line
+    why lines    +12 gap after the last what line, then +23 per line
+    height       H = 98 + 23 × what_lines + (12 + 23 × why_lines, if any) + 18
+    row rule     both cards in one table row get the TALLER of the two heights
+
+  This example has 2 what lines and 2 why lines (H = 98 + 46 + 12 + 46 + 18 = 220).
+  Add or remove <text> lines and recompute y. A phase without a "why" drops the why lines and the 12 px gap.
+  Delete this comment block in the finished file.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="{{H}}" viewBox="0 0 560 {{H}}" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="{{ZONE_BASE}}" stop-opacity=".22"/><stop offset=".6" stop-color="{{ZONE_BASE}}" stop-opacity="0"/></linearGradient></defs>
+<rect x="0.5" y="0.5" width="559" height="{{H_1}}" rx="14" fill="#131016" stroke="{{ZONE_BASE}}" stroke-opacity=".45"/>
+<rect x="1" y="1" width="558" height="{{H_2}}" rx="14" fill="url(#g)"/>
+<rect x="0" y="18" width="5" height="{{BAR_H}}" rx="2.5" fill="{{ZONE_BASE}}"/>
+<rect x="30" y="24" width="46" height="26" rx="13" fill="{{ZONE_BASE}}"/>
+<text x="53" y="42" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1">{{NN}}</text>
+<text x="90" y="44" fill="#f5f0fa" font-size="21" font-weight="700">{{TITLE}}</text>
+<text x="30" y="74" fill="#a39cae" font-size="14">{{META}}</text>
+<text x="30" y="104" fill="#ece6f2" font-size="16">{{WHAT_1}}</text>
+<text x="30" y="127" fill="#ece6f2" font-size="16">{{WHAT_2}}</text>
+<text x="30" y="162" fill="{{ZONE_LIGHT}}" font-size="16" font-style="italic">{{WHY_1}}</text>
+<text x="30" y="185" fill="{{ZONE_LIGHT}}" font-size="16" font-style="italic">{{WHY_2}}</text>
+</svg>

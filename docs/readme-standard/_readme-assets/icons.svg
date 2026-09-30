@@ -1,0 +1,17 @@
+<!--
+  ZONE ICONS · copy the INNER content of one <g> into {{ICON}} of zone-strip.svg.
+  Drawn around (0,0) inside a 24×24 box, stroke only, no colours (the strip sets
+  stroke colour and width). This file renders as a preview row when opened.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="72" viewBox="0 0 360 72" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- zone 1 · the story: open book -->
+  <g id="story" transform="translate(36 36)"><path d="M-12 -8 C-7 -10 -3 -9 0 -6 C3 -9 7 -10 12 -8 V9 C7 7 3 8 0 10 C-3 8 -7 7 -12 9 Z"/><path d="M0 -6 V10"/></g>
+  <!-- zone 2 · features: 2×2 grid -->
+  <g id="features" transform="translate(108 36)"><rect x="-11" y="-11" width="9" height="9" rx="2"/><rect x="2" y="-11" width="9" height="9" rx="2"/><rect x="-11" y="2" width="9" height="9" rx="2"/><rect x="2" y="2" width="9" height="9" rx="2"/></g>
+  <!-- zone 3 · what I learned: light bulb -->
+  <g id="learned" transform="translate(180 36)"><path d="M-5 5 C-5 1 -9 -1 -9 -5 A9 9 0 0 1 9 -5 C9 -1 5 1 5 5 Z"/><path d="M-4 9 H4"/><path d="M-2 12 H2"/></g>
+  <!-- zone 4 · run it yourself: terminal -->
+  <g id="run" transform="translate(252 36)"><rect x="-12" y="-10" width="24" height="20" rx="3"/><path d="M-7 -3 L-3 0 L-7 3"/><path d="M0 4 H6"/></g>
+  <!-- zone 5 · honest notes: shield with mark -->
+  <g id="notes" transform="translate(324 36)"><path d="M0 -12 L10 -8 V0 C10 6 6 10 0 12 C-6 10 -10 6 -10 0 V-8 Z"/><path d="M0 -4 V3"/><path d="M0 7 V7.5"/></g>
+</svg>
