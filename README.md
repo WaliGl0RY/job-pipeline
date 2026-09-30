@@ -2,7 +2,34 @@
 
 <!-- HOOK: 2–4 sentences, WALID writes -->
 
-<details><summary><h2>The story</h2></summary>
+An agent-run job search: Claude routines find postings through MCP connectors, score them against your CV, prepare tailored applications and track replies, all around one SQLite file and one dashboard, with no model API key.
+
+<!-- Stat badges: every number is counted from the repo -->
+<p>
+  <a href="routines/"><img src="https://img.shields.io/static/v1?label=routines&message=3" alt="routines: 3"></a>
+  <a href="core/"><img src="https://img.shields.io/static/v1?label=core%20Python%20modules&message=5" alt="core Python modules: 5"></a>
+  <a href="docs/SETUP.md#2-requirements"><img src="https://img.shields.io/static/v1?label=third-party%20dependencies&message=0" alt="third-party dependencies: 0"></a>
+  <a href="docs/SETUP.md#5-connectors"><img src="https://img.shields.io/static/v1?label=connectors&message=3" alt="connectors: 3"></a>
+  <a href="docs/STORY.md#all-33-fixes"><img src="https://img.shields.io/static/v1?label=documented%20fixes&message=33" alt="documented fixes: 33"></a>
+</p>
+
+<p>
+  <a href="docs/SETUP.md"><img src="https://img.shields.io/static/v1?label=Use%20it&message=docs%2FSETUP.md" alt="Use it: docs/SETUP.md"></a>
+  <a href="docs/STORY.md"><img src="https://img.shields.io/static/v1?label=The%20story&message=docs%2FSTORY.md" alt="The story: docs/STORY.md"></a>
+</p>
+
+---
+
+<a name="story"></a>
+<p><a href="#story"><img src="docs/readme/zones/story.svg" alt="01 The story: why it exists and how it grew" width="100%"></a></p>
+
+<a name="story-short"></a>
+<p><a href="docs/STORY.md"><img src="docs/readme/labels/story-short.svg" alt="Why and how it grew · the short version, then the full build story"></a></p>
+
+<details>
+<summary>Read the short version</summary>
+
+<br>
 
 <!-- WALID: short origin story, 5–8 sentences -->
 
@@ -10,28 +37,24 @@ The full build story, version by version, with the bugs that shaped it: **[docs/
 
 </details>
 
-An agent-run job search: Claude routines find postings through MCP connectors, score them against your CV, prepare tailored applications and track replies, all around one SQLite file and one dashboard, with no model API key.
+---
 
-<!-- Stat badges: every number is counted from the repo; sources are logged in WORKLOG.md -->
-![routines: 3](https://img.shields.io/static/v1?label=routines&message=3)
-![core Python modules: 5](https://img.shields.io/static/v1?label=core%20Python%20modules&message=5)
-![third-party dependencies: 0](https://img.shields.io/static/v1?label=third-party%20dependencies&message=0)
-![connectors: 3](https://img.shields.io/static/v1?label=connectors&message=3)
-![documented fixes: 33](https://img.shields.io/static/v1?label=documented%20fixes&message=33)
+<a name="features"></a>
+<p><a href="#features"><img src="docs/readme/zones/features.svg" alt="02 Features: search, review, tailor, track" width="100%"></a></p>
 
-[![Use it: docs/SETUP.md](https://img.shields.io/static/v1?label=Use%20it&message=docs%2FSETUP.md)](docs/SETUP.md)
-[![The story: docs/STORY.md](https://img.shields.io/static/v1?label=The%20story&message=docs%2FSTORY.md)](docs/STORY.md)
+<a name="dashboard"></a>
+<p><a href="#dashboard"><img src="docs/readme/labels/dashboard.svg" alt="The dashboard · review jobs, replies and next steps on one page"></a></p>
 
 <details>
-<summary><b>The dashboard</b> · review jobs, replies and next steps on one page</summary>
+<summary>More about the dashboard</summary>
 
 <br>
 
-<img src="docs/readme/dashboard-main.png" alt="Dashboard overview with application counters, search radar, inbox and top matches (demo data)" width="100%">
+<a href="docs/SETUP.md#3-install-and-run-the-demo"><img src="docs/readme/dashboard-main.png" alt="Dashboard overview with application counters, search radar, inbox and top matches (demo data)" width="100%"></a>
 
 One HTML file with four tabs: overview, inbox, search radar and all jobs. Every action (approve, discard, tailor, search, interview prep) copies a ready-made prompt for the Claude chat. The page itself has no write access, so a human stays in the loop and nothing changes without you seeing it.
 
-<img src="docs/readme/dashboard-job-detail.png" alt="Job detail panel with the invitation, mail history, skill match and copy-to-chat buttons (demo data)" width="100%">
+<a href="core/dashboard_template.html"><img src="docs/readme/dashboard-job-detail.png" alt="Job detail panel with the invitation, mail history, skill match and copy-to-chat buttons (demo data)" width="100%"></a>
 
 The job detail panel: match and freshness, the invitation and mail history from the reply scan, the skill match, and the next step as a prompt to copy.
 
@@ -39,8 +62,11 @@ The job detail panel: match and freshness, the invitation and mail history from 
 
 </details>
 
+<a name="search"></a>
+<p><a href="#search"><img src="docs/readme/labels/search.svg" alt="Search and scoring · two sources, few filters, every reject logged"></a></p>
+
 <details>
-<summary><b>Search and scoring</b> · two sources, few filters, every reject logged</summary>
+<summary>More about search and scoring</summary>
 
 <br>
 
@@ -51,8 +77,11 @@ The job detail panel: match and freshness, the invitation and mail history from 
 
 </details>
 
+<a name="tailoring"></a>
+<p><a href="#tailoring"><img src="docs/readme/labels/tailoring.svg" alt="Tailored applications (optional) · a CV and a cover letter per job"></a></p>
+
 <details>
-<summary><b>Tailored applications</b> (optional) · a CV and a cover letter per job</summary>
+<summary>More about tailored applications</summary>
 
 <br>
 
@@ -60,8 +89,11 @@ A queued job becomes a package: a LaTeX CV cut to a hard page limit and an edita
 
 </details>
 
+<a name="replies"></a>
+<p><a href="#replies"><img src="docs/readme/labels/replies.svg" alt="Reply tracking (optional) · invited, waiting or rejected"></a></p>
+
 <details>
-<summary><b>Reply tracking</b> (optional) · invited, waiting or rejected</summary>
+<summary>More about reply tracking</summary>
 
 <br>
 
@@ -69,8 +101,16 @@ A mailbox scan by company name classifies each application as *invited*, *waitin
 
 </details>
 
+---
+
+<a name="built"></a>
+<p><a href="#built"><img src="docs/readme/zones/built.svg" alt="03 How it's built: guardrails and architecture" width="100%"></a></p>
+
+<a name="guardrails"></a>
+<p><a href="#guardrails"><img src="docs/readme/labels/guardrails.svg" alt="Guardrails · nothing deleted, every write checked"></a></p>
+
 <details>
-<summary><b>Guardrails</b> · nothing deleted, every write checked</summary>
+<summary>More about the guardrails</summary>
 
 <br>
 
@@ -81,8 +121,11 @@ A mailbox scan by company name classifies each application as *invited*, *waitin
 
 </details>
 
+<a name="architecture"></a>
+<p><a href="#architecture"><img src="docs/readme/labels/architecture.svg" alt="Architecture · routines, connectors, one data folder"></a></p>
+
 <details>
-<summary><b>Architecture</b> · routines, connectors, one data folder</summary>
+<summary>More about the architecture</summary>
 
 <br>
 
@@ -151,11 +194,57 @@ The Python side is small on purpose: five standard-library modules. The "program
 
 </details>
 
-## What I'd build next [CHECK]
+---
 
-> Draft. Replace or confirm.
+<a name="run"></a>
+<p><a href="#run"><img src="docs/readme/zones/run.svg" alt="04 Run it yourself: setup guide, demo data first" width="100%"></a></p>
 
-- **Tests** for the exporter and for the dedupe normalisation (the normalisation currently lives in the routine text, not in code).
-- **A small `dedupe.py` helper** so the company+title rule is code the agent calls, not prose it re-implements each run.
-- **A light-mode screenshot set** and a language toggle for the dashboard.
-- **A dry-run mode for `search-jobs`** that reports what would be inserted without writing to `jobs.db`.
+<a name="setup"></a>
+<p><a href="docs/SETUP.md"><img src="docs/readme/labels/setup.svg" alt="Setup guide · requirements, your CV, connectors, scheduled tasks"></a></p>
+
+Start with the demo data, then follow **[docs/SETUP.md](docs/SETUP.md)** to connect your own CV, search settings, connectors and scheduled tasks.
+
+---
+
+<a name="notes"></a>
+<p><a href="#notes"><img src="docs/readme/zones/notes.svg" alt="05 Honest notes: limitations, security, license" width="100%"></a></p>
+
+<a name="limitations"></a>
+<p><a href="#limitations"><img src="docs/readme/labels/limitations.svg" alt="Known limitations · what it doesn't do, one line each"></a></p>
+
+<details>
+<summary>Show the known limitations</summary>
+
+<br>
+
+- It needs a Claude plan with scheduled tasks and connectors, and the Claude desktop app with access to this folder; nothing runs on its own.
+- Not every connector and scheduled-task step in the setup guide has been checked click by click in the app yet.
+- Both job sources are mandatory: if Apify or Indeed fails, the whole search run counts as failed.
+- The Apify job-listing actor you choose may charge per result; every call has a spending cap, but the cost depends on that actor.
+- Whether the Indeed connector costs anything isn't documented here. **[CHECK]**
+- Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice. **[CHECK]**
+- There are no automated tests, and the company + title deduplication lives in the routine text, not in code.
+- The dashboard is a snapshot: changes only show after a rebuild and republish.
+- The dashboard's layout overflows sideways at phone width.
+- In light mode, a faint shadow strip shows at the right edge of the dashboard.
+- Without a LaTeX engine, tailored CVs stay as `.tex` source; no PDF is made.
+- The dashboard's interface is English only; the documents follow `output_language` in the config.
+
+</details>
+
+<a name="security"></a>
+<p><a href="#security"><img src="docs/readme/labels/security.svg" alt="Security scope · what stays on your machine and what Claude sees"></a></p>
+
+<details>
+<summary>Show the security scope</summary>
+
+<br>
+
+> **[CHECK]** *Draft, rewrite in your own words:* Everything runs on your machine inside your Claude app. Your CV, the job data and the application packages stay in `profile/` and `data/`, which are gitignored. The logins for Apify, Indeed and Gmail are stored in Claude's connector settings, not in this repository. The dashboard has no write access: changes only happen through a chat you can see. Claude reads your CV, the job descriptions and, if you use the mail scan, the mails that match your companies' names.
+
+</details>
+
+<a name="license"></a>
+<p><a href="#license"><img src="docs/readme/labels/license.svg" alt="License · no license file yet"></a></p>
+
+There's no LICENSE file yet, so all rights are reserved by default. **[CHECK]**
