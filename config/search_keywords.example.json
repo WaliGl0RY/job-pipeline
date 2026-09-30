@@ -1,12 +1,14 @@
 {
-  "description": "Search terms and hard filters for routines/search-jobs.md. Copy this file to config/search_keywords.json and edit it. The routine treats it as the ONLY source of search terms and filters. The _comment/_note fields explain why each value is what it is; the agent reads them too.",
+  "description": "Search terms and hard filters for routines/search-jobs.md. Copy this file to config/search_keywords.json and edit it. The routine treats it as the ONLY source of search terms and filters. routines/process-tailor-queue.md reads target.output_language from here too. The _comment/_note fields explain why each value is what it is; the agent reads them too.",
 
   "target": {
     "comment": "Who and where you are searching for. The demo setup is working-student roles around Cologne, Germany; change all of this to your own situation.",
     "role_type": "working student",
     "home_location": "Cologne",
     "country_code": "DE",
-    "location_radius_km": 40
+    "location_radius_km": 40,
+    "output_language": "English",
+    "output_language_comment": "Language of everything the agent writes for you: tailored CVs, cover letters, and the match reasoning in jobs.db. Use the language your applications should be in, e.g. \"German\" for postings in Germany. If this field is missing, tailoring falls back to the posting's language and search reasoning to English."
   },
 
   "broad_sweeps": {

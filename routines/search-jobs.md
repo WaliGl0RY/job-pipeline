@@ -48,7 +48,7 @@ Run every entry in `priority_searches.indeed` via `search_jobs(search=<term>, lo
 ## Step D: score, then write only if match_score >= min_match_score
 For each new job:
 1. Read its full description (fetch it if the search result was truncated).
-2. Score it yourself, in this turn, against cv_skills_snapshot.json: no script, no API call. Produce `match_score` (0-100, your judgment), `matching_skills` (list), `missing_skills` (list), and one short sentence of reasoning.
+2. Score it yourself, in this turn, against cv_skills_snapshot.json: no script, no API call. Produce `match_score` (0-100, your judgment), `matching_skills` (list), `missing_skills` (list), and one short sentence of reasoning. Write the reasoning and any notes in `target.output_language` from the config (if missing, English).
 3. Score the **work described**, not the department it sits in. A role filed under a non-technical department that actually consists of data analysis, dashboards, scripting, automation or IT support is a strong match if the profile fits the tasks.
 4. If there's a clear, actionable gap (e.g. the job wants a certification that the profile lists as in progress), put a concrete suggestion into the notes, not a generic "skills don't fully match".
 5. **Match-score gate:** if match_score < `min_match_score` (default 50), do NOT insert the job. Count it for the report and log it to skipped_log.json with reason `score_<n>`. No row, no description entry.

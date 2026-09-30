@@ -16,6 +16,10 @@ config/dashboard_artifact.json
 
 # Private working notes (not part of the repo)
 AUDIT.md
+PROMPT_HISTORY_RAW.md
+WORKLOG.md
+_trash/
+docs/readme/mockups/
 
 # Python / editors / LaTeX by-products
 __pycache__/

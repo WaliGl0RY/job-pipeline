@@ -15,6 +15,7 @@ You are processing the tailoring queue for this job pipeline. Work inside the re
 - `data/cv_profile/cv_skills_snapshot.json` + `cv_snapshot_meta.json`: the profile. If the sha256 of `profile/master_cv.tex` differs from the stored hash, regenerate the snapshot first (same gate as in `routines/search-jobs.md`).
 - `profile/master_cv.tex`: the master CV. It stays **complete and uncut**: only the tailored per-job output gets cut. Its preamble is the canonical LaTeX template (start from `templates/master_cv.example.tex`).
 - `config/cv_emphasis.json`: job type → sections/skills to emphasise. A starting hint only.
+- `config/search_keywords.json` → `target.output_language`: the language of every document you write (CV and cover letter). If the field is missing, use the language of the posting.
 
 ## Reliability
 Writes on synced/network folders can silently truncate, and a stale SQLite `-journal` can make later connects fail with `disk I/O error`. Use `JobDatabase` for all jobs.db writes and `core/safe_io.py`'s `safe_write_text()` for every JSON/text file (status_changes.json, tailor_queue.json, meta.json). If a PDF/DOCX in a package is locked by an open viewer, retry once, then write under a new name (`..._NEW.pdf`) and say clearly in the report which file is current.
@@ -28,7 +29,9 @@ For each queue entry, in order:
 2. Pick the best-fitting job type from cv_emphasis.json by reading the description.
 3. Create `data/packages/<job_id>_<company-slug>/` and write:
 
-**`cv_tailored.tex`: actually tailor it, don't just relabel the intro.**
+**`cv_tailored.tex`: actually tailor it, don't just relabel the intro.** Write it in `target.output_language`.
+- **No claimed specialization.** Never claim a specialization, focus or qualification that isn't in the CV. Describe interests as interests.
+- **Abbreviations:** the first time, write the full term with the abbreviation in brackets (e.g. "Test-Driven Development (TDD)"); after that, use only the abbreviation. In the intro paragraph, which has no parentheses, write the full term only.
 - **Content selection is a judgment call per posting.** Decide which projects, skills and certifications earn a place for *this* job. Cut the least relevant bullets first.
 - **Max 2 pages, hard limit, on the tailored output only.** A tailored CV as long as the master is a bug, not a pass.
 - **Never let a heading+list block split across a page.** Wrap every entry (heading plus its bullet list) in the `cvblock` environment from the template. A minipage is an atomic box: if it doesn't fit, TeX moves the whole block to the next page. The environment MUST start with `\noindent` (`\newenvironment{cvblock}{\noindent\begin{minipage}{\linewidth}}{\end{minipage}}`): without it, every block except the one right after a `\section` picks up a stray paragraph indent, which misaligns the title and, through `\hfill`, the date on the same line.
@@ -39,12 +42,17 @@ For each queue entry, in order:
 - **One wildcard line:** keep one authentic detail unrelated to the job's core requirements (an interest, a language, a side project) so the CV doesn't read like a template.
 
 **`cover_letter.docx`: native Word file, not PDF, not LaTeX** (you will edit it by hand before sending; use Claude's docx skill).
-- Write the documents in the language of the posting. Max one page.
+- Write it in `target.output_language`. Max one page.
 - Sender block from the snapshot's `personal` fields; recipient; date; bold subject line "Application for <job title>"; salutation; 3 short paragraphs; closing; name. Same order every time.
+- **Salutation:** if the posting names a contact person, greet them by name; otherwise use a general greeting.
 - **Research the company first** (its posting and its own site) and open with one specific, true connection between the profile and this company. No generic praise.
+- **Name 2–3 concrete tasks from the posting** and connect them to real items in the profile.
 - **Narrative, not enumeration:** weave 1-2 concrete proof points from the profile into a short story about what you enjoy or why it matters. If the posting asks for something the profile doesn't have, one honest sentence about wanting to learn it is fine.
+- **Only completed work as proof points:** completed courses, projects or jobs, never planned ones.
+- **No claimed specialization.** Never claim a specialization, focus or qualification that isn't in the CV. Describe interests as interests.
+- **Abbreviations:** the first time, write the full term with the abbreviation in brackets; after that, use only the abbreviation.
 - **Simple language:** short sentences, everyday vocabulary.
-- **Closing:** availability and wanting to talk. Don't mention documents the posting didn't ask for.
+- **Closing:** availability and wanting to talk. Write start dates so they can't be read as end dates (e.g. "from 01.10." not "to 01.10."). Don't mention documents the posting didn't ask for.
 - ATS-safe: plain paragraphs, no text boxes, tables or content in headers/footers, standard fonts.
 
 4. **Compile only if a LaTeX engine is available** (`tectonic`, or `pdflatex` run twice). Put by-products in `build/` inside the package, never next to the PDF. Name the deliverable `CV_<Company>.pdf`. Check the page count (`pdfinfo`), and check reading order with `pdftotext -layout` (a garbled two-column block gets simplified to one column). If no engine is installed, ship the `.tex` and set `pdf_compiled: false`.
