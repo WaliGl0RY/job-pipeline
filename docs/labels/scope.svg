@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="433" height="36" viewBox="0 0 433 36" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<title>Security scope · what it protects and what it doesn't</title>
+<rect x="0.5" y="0.5" width="432" height="35" rx="9" fill="#13141c" stroke="#e0a94f" stroke-opacity=".6"/>
+<rect x="0" y="8" width="4" height="20" rx="2" fill="#e0a94f"/>
+<circle cx="24" cy="18" r="5" fill="#e0a94f"/>
+<text x="40" y="24"><tspan fill="#f2d08e" font-size="16" font-weight="700">Security scope</tspan><tspan dx="12" fill="#b0b1c8" font-size="14" font-weight="400">·  what it protects and what it doesn't</tspan></text>
+</svg>

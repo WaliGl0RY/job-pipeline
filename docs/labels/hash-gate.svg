@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="508" height="36" viewBox="0 0 508 36" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<title>Hash-gated CV snapshot · read the CV only when it changes</title>
+<rect x="0.5" y="0.5" width="507" height="35" rx="9" fill="#13141c" stroke="#b16cea" stroke-opacity=".6"/>
+<rect x="0" y="8" width="4" height="20" rx="2" fill="#b16cea"/>
+<circle cx="24" cy="18" r="5" fill="#b16cea"/>
+<text x="40" y="24"><tspan fill="#d9b6f6" font-size="16" font-weight="700">Hash-gated CV snapshot</tspan><tspan dx="12" fill="#b0b1c8" font-size="14" font-weight="400">·  read the CV only when it changes</tspan></text>
+</svg>

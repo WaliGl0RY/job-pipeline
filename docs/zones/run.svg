@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="84" viewBox="0 0 1200 84" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<title>Run it yourself</title>
+<defs>
+  <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
+    <stop offset="0" stop-color="#5fce9b" stop-opacity=".28"/><stop offset=".55" stop-color="#5fce9b" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<rect x="0.5" y="0.5" width="1199" height="83" rx="14" fill="#13141c" stroke="#5fce9b" stroke-opacity=".45"/>
+<rect x="1" y="1" width="1198" height="82" rx="14" fill="url(#g)"/>
+<rect x="0" y="16" width="6" height="52" rx="3" fill="#5fce9b"/>
+<circle cx="62" cy="42" r="24" fill="#5fce9b" fill-opacity=".16" stroke="#5fce9b" stroke-width="1.5"/>
+<g transform="translate(62 42)" fill="none" stroke="#a9ecce" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="-12" y="-10" width="24" height="20" rx="3"/><path d="M-7 -3 L-3 0 L-7 3"/><path d="M0 4 H6"/></g>
+<text x="106" y="33" fill="#5fce9b" font-size="12" font-weight="700" letter-spacing="3">04</text>
+<text x="104" y="60" fill="#a9ecce" font-size="27" font-weight="700" letter-spacing="-0.3">Run it yourself</text>
+<text x="1172" y="49" fill="#b0b1c8" font-size="15" text-anchor="end">demo data in three commands</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="433" height="36" viewBox="0 0 433 36" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<title>Deployment · three scheduled tasks and one artifact</title>
+<rect x="0.5" y="0.5" width="432" height="35" rx="9" fill="#13141c" stroke="#5fce9b" stroke-opacity=".6"/>
+<rect x="0" y="8" width="4" height="20" rx="2" fill="#5fce9b"/>
+<circle cx="24" cy="18" r="5" fill="#5fce9b"/>
+<text x="40" y="24"><tspan fill="#a9ecce" font-size="16" font-weight="700">Deployment</tspan><tspan dx="12" fill="#b0b1c8" font-size="14" font-weight="400">·  three scheduled tasks and one artifact</tspan></text>
+</svg>

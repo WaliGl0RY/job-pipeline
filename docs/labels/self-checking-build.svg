@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="467" height="36" viewBox="0 0 467 36" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+<title>A build that checks itself · prints OK or BUILD FAILED</title>
+<rect x="0.5" y="0.5" width="466" height="35" rx="9" fill="#13141c" stroke="#b16cea" stroke-opacity=".6"/>
+<rect x="0" y="8" width="4" height="20" rx="2" fill="#b16cea"/>
+<circle cx="24" cy="18" r="5" fill="#b16cea"/>
+<text x="40" y="24"><tspan fill="#d9b6f6" font-size="16" font-weight="700">A build that checks itself</tspan><tspan dx="12" fill="#b0b1c8" font-size="14" font-weight="400">·  prints OK or BUILD FAILED</tspan></text>
+</svg>
