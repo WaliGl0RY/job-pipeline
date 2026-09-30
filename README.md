@@ -6,6 +6,7 @@
   <a href="docs/SETUP.md#2-requirements"><img src="https://img.shields.io/static/v1?label=third-party%20dependencies&message=0" alt="third-party dependencies: 0"></a>
   <a href="docs/SETUP.md#5-connectors"><img src="https://img.shields.io/static/v1?label=connectors&message=3" alt="connectors: 3"></a>
   <a href="#all-33-fixes"><img src="https://img.shields.io/static/v1?label=documented%20fixes&message=33" alt="documented fixes: 33"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/static/v1?label=license&message=MIT" alt="license: MIT"></a>
 </p>
 
 <p align="center">
@@ -17,6 +18,7 @@
   <a href="#guardrails"><img src="docs/readme/nav/nav-guardrails.svg" alt="Guardrails" height="30"></a>
   <a href="#architecture"><img src="docs/readme/nav/nav-architecture.svg" alt="Architecture" height="30"></a>
   <a href="#use-it-yourself"><img src="docs/readme/nav/nav-use-it-yourself.svg" alt="Use it yourself" height="30"></a>
+  <a href="#honest-notes"><img src="docs/readme/nav/nav-honest-notes.svg" alt="Honest notes" height="30"></a>
 </p>
 
 <a name="story"></a>
@@ -88,7 +90,7 @@ The three routines as they look in Claude's scheduled tasks. Each card links to 
 
 <p><a href="#replies"><img src="docs/readme/routines/scan-mail-status.svg" alt="Routine card: Scan mail status. You maintain the job-application mail status for the project at (hidden). Do exactly this, self-contained: 1. Read the job list from the SQLite DB… Badges: Paused, Requires your computer." width="100%"></a></p>
 
-How they are started: by hand. Each routine is a scheduled task created without a schedule and run when needed: the search about every 3 days, the tailoring after you have picked jobs in the dashboard, the mail scan after you have sent applications (or on a schedule you choose). See [docs/SETUP.md](docs/SETUP.md#6-scheduled-tasks-in-cowork).
+None of the routines runs on a timer, I start them myself (frequency: manual). Search jobs and Process tailor queue show "Only on this computer" because they use local files, so they run only while Claude Desktop is open on my computer. Scan mail status is paused at the moment.
 
 ---
 
@@ -193,8 +195,8 @@ The Python side is small on purpose: five standard-library modules. The "program
 > - Not every connector and scheduled-task step in the setup guide has been checked click by click in the app yet.
 > - Both job sources are mandatory: if Apify or Indeed fails, the whole search run counts as failed.
 > - The Apify job-listing actor you choose may charge per result; every call has a spending cap, but the cost depends on that actor.
-> - Whether the Indeed connector costs anything isn't documented here. **[CHECK]**
-> - Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice. **[CHECK]**
+> - Whether the Indeed connector costs anything isn't documented here.
+> - Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice.
 > - There are no automated tests, and the company + title deduplication lives in the routine text, not in code.
 > - The dashboard is a snapshot: changes only show after a rebuild and republish.
 > - The dashboard's layout overflows sideways at phone width.
@@ -206,7 +208,7 @@ The Python side is small on purpose: five standard-library modules. The "program
 > <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/2.svg" width="32" height="32" alt="Item 2"></a></td><td valign="top"><b>Security scope</b><br><sub>what stays on your machine and what Claude sees</sub></td></tr>
 > </table>
 >
-> **[CHECK]** *Draft, rewrite in your own words:* Everything runs on your machine inside your Claude app. Your CV, the job data and the application packages stay in `profile/` and `data/`, which are gitignored. The logins for Apify, Indeed and Gmail are stored in Claude's connector settings, not in this repository. The dashboard has no write access: changes only happen through a chat you can see. Claude reads your CV, the job descriptions and, if you use the mail scan, the mails that match your companies' names.
+> The routines read job postings through the Apify and Indeed connectors and, for the optional reply scan, the mails that match your companies' names through the Gmail connector. They write only to local files in this repository (the SQLite file, JSON files, the application packages and the exported dashboard page) and republish that page as a Claude artifact. The dashboard has no write access, nothing is submitted automatically (you apply yourself), and the routines never delete rows in the database, only change their status. Every file write is checksummed and read back. No model API key is stored anywhere: the logins for Apify, Indeed and Gmail live in Claude's connector settings, not in this repository.
 >
 > <table>
 > <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/3.svg" width="32" height="32" alt="Item 3"></a></td><td valign="top"><b>Built with AI</b><br><sub>I decided and tested; Claude was the coding assistant</sub></td></tr>
@@ -215,7 +217,7 @@ The Python side is small on purpose: five standard-library modules. The "program
 > I decided what to build and how it should behave, and I tested the result. Claude was the coding assistant. At runtime the pipeline is Claude routines too, on a Claude subscription, with no model API key.
 >
 > <table>
-> <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/4.svg" width="32" height="32" alt="Item 4"></a></td><td valign="top"><b>License</b><br><sub>there's no LICENSE file yet, so all rights are reserved by default <b>[CHECK]</b></sub></td></tr>
+> <tr><td width="44" valign="top"><a href="#honest-notes"><img src="docs/readme/badges/4.svg" width="32" height="32" alt="Item 4"></a></td><td valign="top"><b>License</b><br><sub>MIT, see <a href="LICENSE">LICENSE</a></sub></td></tr>
 > </table>
 
 ---
@@ -226,7 +228,7 @@ The Python side is small on purpose: five standard-library modules. The "program
 How this pipeline got from a per-token API script to agent routines around one SQLite file, reconstructed from dated notes, change logs and archived files. Facts only; all dates are 2026. Where something wasn't recorded, it's left out.
 
 > <table>
-> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Origin</b><br><sub>why I started building this <b>[CHECK]</b> write it in your own words</sub></td></tr>
+> <tr><td width="44" valign="top"><a href="#the-story"><img src="docs/readme/badges/1.svg" width="32" height="32" alt="Item 1"></a></td><td valign="top"><b>Origin</b><br><sub>why I started building this</sub><br>I was looking for a Werkstudent job, and every application meant the same steps: find postings, check them against my CV, write a CV and cover letter, keep track of replies. I built one place to do that, with Claude as the agent.</td></tr>
 > </table>
 
 > <table>

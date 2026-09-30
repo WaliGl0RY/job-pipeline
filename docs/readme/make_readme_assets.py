@@ -162,7 +162,8 @@ def banner():
 PILLS = [("Story ↓", "#story", True), ("Search & scoring", "#search-and-scoring", False),
          ("Applications", "#applications", False), ("Replies", "#replies", False),
          ("Routines", "#routines", False), ("Guardrails", "#guardrails", False),
-         ("Architecture", "#architecture", False), ("Use it yourself", "#use-it-yourself", False)]
+         ("Architecture", "#architecture", False), ("Use it yourself", "#use-it-yourself", False),
+         ("Honest notes", "#honest-notes", False)]
 
 
 def make_pills():
