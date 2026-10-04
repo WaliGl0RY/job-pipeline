@@ -57,7 +57,7 @@ LABELS = {
     "setup":           ("Setup guide", "requirements, your CV, connectors, scheduled tasks"),
     "limitations":     ("Known limitations", "what it doesn't do, one line each"),
     "security":        ("Security scope", "what stays on your machine and what Claude sees"),
-    "license":         ("License", "no license file yet"),
+    "license":         ("License", "for reading only, not for reuse"),
 }
 
 

@@ -204,6 +204,8 @@ The Python side is small on purpose: five standard-library modules. The "program
 
 Start with the demo data, then follow **[docs/SETUP.md](docs/SETUP.md)** to connect your own CV, search settings, connectors and scheduled tasks.
 
+Standalone prompts, to paste into any Claude chat without the pipeline: [set up your profile](docs/prompts/set-profile.md), [job search](docs/prompts/search-jobs.md), [CV tailoring](docs/prompts/cv-tailoring.md), [motivation letter](docs/prompts/motivation-letter.md).
+
 ---
 
 <a name="notes"></a>
@@ -221,8 +223,8 @@ Start with the demo data, then follow **[docs/SETUP.md](docs/SETUP.md)** to conn
 - Not every connector and scheduled-task step in the setup guide has been checked click by click in the app yet.
 - Both job sources are mandatory: if Apify or Indeed fails, the whole search run counts as failed.
 - The Apify job-listing actor you choose may charge per result; every call has a spending cap, but the cost depends on that actor.
-- Whether the Indeed connector costs anything isn't documented here. **[CHECK]**
-- Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice. **[CHECK]**
+- The Indeed connector was free on my plan; check yours.
+- Match scores are Claude's judgment in each run, not a formula, so the same posting isn't guaranteed the same score twice.
 - There are no automated tests, and the company + title deduplication lives in the routine text, not in code.
 - The dashboard is a snapshot: changes only show after a rebuild and republish.
 - The dashboard's layout overflows sideways at phone width.
@@ -240,11 +242,11 @@ Start with the demo data, then follow **[docs/SETUP.md](docs/SETUP.md)** to conn
 
 <br>
 
-> **[CHECK]** *Draft, rewrite in your own words:* Everything runs on your machine inside your Claude app. Your CV, the job data and the application packages stay in `profile/` and `data/`, which are gitignored. The logins for Apify, Indeed and Gmail are stored in Claude's connector settings, not in this repository. The dashboard has no write access: changes only happen through a chat you can see. Claude reads your CV, the job descriptions and, if you use the mail scan, the mails that match your companies' names.
+Everything runs on your machine, inside your Claude app. Your CV and job data stay in `profile/` and `data/`, which are gitignored, so nothing from them is uploaded to this repository. Claude reads them while a run is going. The job postings come from scraping, you never type them in.
 
 </details>
 
 <a name="license"></a>
-<p><a href="#license"><img src="docs/readme/labels/license.svg" alt="License · no license file yet"></a></p>
+<p><a href="#license"><img src="docs/readme/labels/license.svg" alt="License · for reading only, not for reuse"></a></p>
 
-There's no LICENSE file yet, so all rights are reserved by default. **[CHECK]**
+No license file on purpose: this repo is for reading only, not for reuse.

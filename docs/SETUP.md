@@ -79,6 +79,8 @@ cp templates/master_cv.example.tex profile/master_cv.tex
 
 Open `profile/master_cv.tex` and replace the demo person with yourself. Keep it **complete**: every project, job, certificate and skill you have. The tailoring task does the cutting for each job; it can only pick from what's in here. The file stays on your computer: `profile/` is in `.gitignore`.
 
+**Or let Claude write it.** If you'd rather start from your old CV than edit LaTeX by hand, send Claude the prompt in [`docs/prompts/set-profile.md`](prompts/set-profile.md) instead of editing the file yourself. It fills this same file from your material and doesn't invent anything. Job data is never entered by hand: it comes from the search runs in section 6.
+
 On the first search run, Claude reads this file once and builds a profile snapshot in `data/cv_profile/`. After that it only re-reads the CV when the file actually changes.
 
 ### 4.2 Search settings
@@ -282,4 +284,4 @@ After editing a routine, you don't need to touch the scheduled task: it reads th
 
 ## Appendix: just the prompts
 
-If you only want the prompts, without the pipeline, [`docs/prompts/`](prompts/) has three standalone versions to paste into any Claude chat: job search, CV tailoring and motivation letter. Each lists every value you need to fill in, with an example.
+If you only want the prompts, without the pipeline, [`docs/prompts/`](prompts/) has four standalone versions to paste into any Claude chat: profile setup, job search, CV tailoring and motivation letter. Each lists every value you need to fill in, with an example.
