@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="64" viewBox="0 0 1000 64" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+
+<rect width="1000" height="64" rx="10" fill="#78350f"/>
+<rect width="4" height="64" rx="2" fill="#fbbf24"/>
+<circle cx="38" cy="32" r="14" fill="#fbbf24"/>
+<path d="M30.5 32 L36 37.5 L46 26" fill="none" stroke="#78350f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="68" y="29" fill="#ffffff" font-size="17" font-weight="700">You apply yourself</text>
+<text x="68" y="50" fill="#fde68a" font-size="14">nothing is ever submitted automatically</text>
+</svg>

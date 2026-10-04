@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="84" viewBox="0 0 1200 84" font-family="Segoe UI, -apple-system, Helvetica, Arial, sans-serif">
+
+<rect width="1200" height="84" rx="14" fill="#0e7490"/>
+<circle cx="62" cy="42" r="24" fill="#ffffff" fill-opacity=".18"/>
+<g transform="translate(62 42)" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M-8 -11 H4 L9 -6 V11 H-8 Z"/><path d="M4 -11 V-6 H9"/><path d="M-4 0 H5"/><path d="M-4 5 H5"/></g>
+<text x="106" y="33" fill="#ffffff" fill-opacity=".8" font-size="12" font-weight="700" letter-spacing="3">04</text>
+<text x="104" y="60" fill="#ffffff" font-size="27" font-weight="700" letter-spacing="-0.3">Applications</text>
+<text x="1172" y="49" fill="#ffffff" fill-opacity=".9" font-size="15" text-anchor="end">optional: a CV and a cover letter per job</text>
+</svg>

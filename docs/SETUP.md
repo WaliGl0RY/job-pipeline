@@ -20,7 +20,7 @@ A job search that runs as Claude tasks on your own computer. One task searches t
 
 | You need | Why | Notes |
 |---|---|---|
-| **A Claude plan with scheduled tasks and connectors** | the routines run as scheduled tasks and use connectors | check your plan's feature list <!-- TODO WALID: verify in app: which plans include scheduled tasks and custom connectors --> |
+| **A Claude plan with scheduled tasks and connectors** | the routines run as scheduled tasks and use connectors | check your plan's feature list |
 | **The Claude desktop app** | scheduled tasks run there, with access to a folder on your computer | Windows or macOS |
 | **Python 3.9 or newer** | the scripts in `core/` and `demo/` | standard library only, nothing to install with pip |
 | **Git** | to clone the repository | or download it as a ZIP |
@@ -142,15 +142,14 @@ The routines use connectors in the Claude app. Your Apify token and your Indeed 
 Used by the search task (tools `call-actor` and `get-dataset-items`).
 
 1. Create an account on apify.com and pick a job-listing actor. Note its ID for `apify.actor_id`.
-2. In the Claude desktop app, open **Settings → Connectors**. <!-- TODO WALID: verify in app: exact menu path -->
-3. Add Apify, either from the connector directory or as a custom connector with the server URL `https://mcp.apify.com`. <!-- TODO WALID: verify in app: whether Apify is listed in the directory, and the exact "add custom connector" wording -->
-4. Sign in to Apify when asked. <!-- TODO WALID: verify in app: whether it asks for a sign-in or an API token -->
+2. Open the connector settings of the Claude desktop app.
+3. Add Apify as a connector, using the server URL `https://mcp.apify.com` if it isn't offered directly.
 
 ### 5.2 Indeed (required)
 
 Used by the search task (`search_jobs`) and by tailoring when a job description is missing (`get_job_details`).
 
-1. In **Settings → Connectors**, add the Indeed connector from the directory. <!-- TODO WALID: verify in app: that Indeed is listed, its name, and any sign-in step -->
+1. In the connector settings, add the Indeed connector.
 
 If Indeed isn't available to you, the search task will report every run as failed (both sources are mandatory). Remove step A2 from your copy of `routines/search-jobs.md` in that case.
 
@@ -158,17 +157,17 @@ If Indeed isn't available to you, the search task will report every run as faile
 
 Used only by the mail-scan task.
 
-1. In **Settings → Connectors**, add Gmail and sign in with the mailbox you send applications from. <!-- TODO WALID: verify in app: connector name and sign-in flow -->
+1. In the connector settings, add Gmail, using the mailbox you send applications from.
 
 ### 5.4 Folder access
 
-The tasks read and write files in this repository. Give Claude access to the `job-pipeline` folder. <!-- TODO WALID: verify in app: where folder access is granted for scheduled tasks -->
+The tasks read and write files in this repository. Give Claude access to the `job-pipeline` folder.
 
 ---
 
 ## 6. Scheduled tasks in Cowork
 
-Create **one scheduled task per routine** in Cowork. <!-- TODO WALID: verify in app: the exact place to create a scheduled task, and how to set it to "manual" (no schedule) -->
+Create **one scheduled task per routine**: create the task from the Scheduled page in the sidebar (or with `/schedule` inside a Cowork task), set the frequency to manual (on demand), and start it from the Scheduled page. A task that needs local files only runs locally, with Claude Desktop open.
 
 Paste the prompt below as the task's instructions. Replace `<path-to-repo>` with the folder you cloned into. Keep the prompt this short: it only points to the routine file, so the rules live in exactly one place and your task can never run an outdated copy.
 
@@ -213,7 +212,7 @@ The tasks publish `data/dashboard.html` as a Claude artifact so you can open it 
 cp config/dashboard_artifact.example.json config/dashboard_artifact.json
 ```
 
-and put the artifact's URL or ID into the `url` field. From then on every task updates that same artifact instead of creating a new one. <!-- TODO WALID: verify in app: where to find the artifact's URL -->
+and put the artifact's URL or ID into the `url` field. From then on every task updates that same artifact instead of creating a new one.
 
 ### A normal week
 
